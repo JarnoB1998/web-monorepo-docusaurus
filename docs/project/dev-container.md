@@ -1,5 +1,11 @@
 # Projectopdracht webontwikkeling
 
+Voor dit project werk je in een repository binnen de GitHub-organisatie van het vak. Zo hebben de lectoren steeds toegang tot je project, kunnen ze je voortgang opvolgen en je werk beoordelen. Repository's die niet binnen deze organisatie staan (bv. op je persoonlijk GitHub-account), worden niet aanvaard als indiening.
+
+We werken bovendien met een devcontainer. Waarom we dat doen, lees je op de [tooling-pagina over devcontainers](../tooling/devcontainers.md) uit Labo 1, dat leggen we hier niet opnieuw uit.
+
+Volg onderstaande stappen om aan de slag te gaan.
+
 ## Jouw repo in de Github Organisatie
 
 1. Maak een GitHub-account aan met je AP e-mailadres, of log in op je bestaande account. Heb je al een GitHub-account met een persoonlijk e-mailadres? Dan kan je jouw AP e-mailadres als secundair adres toevoegen in de instellingen.
