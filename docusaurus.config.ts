@@ -101,6 +101,12 @@ const config: Config = {
           label: 'Labos',
         },
         {
+          type: 'docSidebar',
+          sidebarId: 'projectSidebar',
+          position: 'left',
+          label: 'Project',
+        },
+        {
           href: 'https://github.com/similon',
           label: 'GitHub',
           position: 'right',

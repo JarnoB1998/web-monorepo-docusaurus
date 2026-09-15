@@ -1046,10 +1046,8 @@ const sidebars: SidebarsConfig = {
         "id": "labos/circuit-crawler",
         "label": "Circuit Crawler"
       },
-  {
-    "type": "category",
-    "label": "Project",
-    "items": [
+],
+  projectSidebar: [
       {
         "type": "doc",
         "id": "project/dev-container",
@@ -1120,8 +1118,6 @@ const sidebars: SidebarsConfig = {
           }
         ]
       }
-    ]
-  }
 ]
 };
 
