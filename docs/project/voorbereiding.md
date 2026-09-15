@@ -1,4 +1,4 @@
-# Projectopdracht webontwikkeling
+# Voorbereiding
 
 Voor dit project werk je in een repository binnen de GitHub-organisatie van het vak. Zo hebben de lectoren steeds toegang tot je project, kunnen ze je voortgang opvolgen en je werk beoordelen. Repository's die niet binnen deze organisatie staan (bv. op je persoonlijk GitHub-account), worden niet aanvaard als indiening.
 

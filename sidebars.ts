@@ -1050,8 +1050,13 @@ const sidebars: SidebarsConfig = {
   projectSidebar: [
       {
         "type": "doc",
-        "id": "project/dev-container",
-        "label": "Voorbereiding (devcontainer + github)"
+        "id": "project/algemeen",
+        "label": "Algemene info"
+      },
+      {
+        "type": "doc",
+        "id": "project/voorbereiding",
+        "label": "Voorbereiding"
       },
       {
         "type": "category",
