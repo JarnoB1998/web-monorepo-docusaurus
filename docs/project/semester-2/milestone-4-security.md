@@ -1,3 +1,7 @@
+---
+unlisted: true
+---
+
 # Milestone 4 - Security
 
 - Bij het opstarten van de applicatie voeg je twee default gebruikers toe: een admin en een user. Zorg ervoor dat de wachtwoorden van deze gebruikers veilig worden opgeslagen (hint: bcrypt). De admin gebruiker heeft een ADMIN role en de user een USER role.

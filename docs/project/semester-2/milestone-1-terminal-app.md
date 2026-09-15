@@ -1,3 +1,7 @@
+---
+unlisted: true
+---
+
 # Milestone 1 - Terminal App
 
 ## Interfaces

@@ -1,3 +1,7 @@
+---
+unlisted: true
+---
+
 # Milestone 3 - MongoDB
 
 ## Data naar MongoDB schrijven

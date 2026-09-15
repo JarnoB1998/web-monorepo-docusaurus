@@ -1,3 +1,7 @@
+---
+unlisted: true
+---
+
 # Milestone 0 - JSON
 
 ## JSON Aanmaken
