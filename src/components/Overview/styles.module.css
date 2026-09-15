@@ -1,0 +1,210 @@
+/* ---------- Kaartjes ---------- */
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-bottom: var(--ifm-leading);
+}
+
+.card {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-card-border-radius, 0.5rem);
+  padding: 1rem 1.1rem;
+  background: var(--ifm-background-surface-color);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: var(--ifm-global-shadow-lw);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+  font-size: 1.05rem;
+}
+
+.cardIcon {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.cardBody {
+  font-size: 0.95rem;
+  color: var(--ifm-color-emphasis-800);
+}
+
+.cardBody > p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- Stappenplan ---------- */
+
+.stepList {
+  counter-reset: step;
+  list-style: none;
+  padding-left: 0;
+  margin: 0 0 var(--ifm-leading);
+}
+
+.step {
+  counter-increment: step;
+  position: relative;
+  padding: 0 0 1.1rem 3rem;
+  margin: 0;
+}
+
+/* Genummerd bolletje */
+.step::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--ifm-color-primary);
+  color: #fff;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Verbindingslijn tussen de bolletjes */
+.step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: calc(1rem - 1px);
+  top: 2.2rem;
+  bottom: 0.2rem;
+  width: 2px;
+  background: var(--ifm-color-emphasis-300);
+}
+
+.stepContent {
+  padding-top: 0.2rem;
+}
+
+.stepTitle {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.badge {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.05rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  vertical-align: middle;
+  background: var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-emphasis-800);
+}
+
+.stepBody {
+  font-size: 0.95rem;
+  color: var(--ifm-color-emphasis-800);
+  margin-top: 0.15rem;
+}
+
+.stepBody > p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- Schema ---------- */
+
+.diagram {
+  display: flex;
+  align-items: stretch;
+  gap: 0.75rem;
+  margin-bottom: var(--ifm-leading);
+  flex-wrap: wrap;
+}
+
+.box {
+  border-radius: 0.6rem;
+  padding: 0.6rem 0.8rem;
+}
+
+.boxTitle {
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 0.4rem;
+}
+
+.boxBody {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.box_outer {
+  flex: 1 1 420px;
+  border: 2px solid var(--ifm-color-emphasis-400);
+  background: var(--ifm-color-emphasis-100);
+}
+
+.box_middle {
+  flex: 1 1 260px;
+  border: 2px dashed #1d63ed;
+  background: rgba(29, 99, 237, 0.06);
+}
+
+.box_inner {
+  flex: 1 1 200px;
+  border: 2px solid var(--ifm-color-primary);
+  background: rgba(37, 194, 160, 0.08);
+}
+
+.box_item {
+  flex: 1 1 120px;
+  align-self: center;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background: var(--ifm-background-surface-color);
+  font-size: 0.9rem;
+}
+
+.box_item .boxTitle {
+  margin-bottom: 0;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.box_remote {
+  flex: 0 1 180px;
+  align-self: center;
+  border: 2px solid var(--ifm-color-emphasis-500);
+  background: var(--ifm-background-surface-color);
+  text-align: center;
+}
+
+.box_remote .boxBody {
+  justify-content: center;
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.arrowLine {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.arrowLabel {
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
