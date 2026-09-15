@@ -70,7 +70,7 @@ Volg de stappen in deze volgorde. Klik op een stap om er meteen naartoe te sprin
 
 <StepList>
   <Step title="Installeer de software" href="#stap-1-installeer-de-software">
-    [WSL](#installeer-wsl) (enkel Windows), [Docker Desktop](#installeer-docker-desktop) en [Git](#installeer-git)
+    [WSL](#installeer-wsl) (enkel Windows), [Docker Desktop](#installeer-docker-desktop) en [Git installeren en configureren](#installeer-git)
   </Step>
   <Step title="Zet GitHub klaar" href="#stap-2-zet-github-klaar">
     [GitHub-account](#maak-een-github-account-aan) en een [private labo-repository](#maak-een-labo-repository-aan)
@@ -131,9 +131,13 @@ Download het installatieprogramma via [docker.com](https://www.docker.com/produc
 Je hoeft **GEEN** account te maken om Docker Desktop te installeren. Maak je er toch één aan, kijk dan in je mailbox naar de verificatiemail en bevestig je e-mailadres. Anders start je devcontainer later niet op (zie [Troubleshooting](#docker-e-mailadres-niet-geverifieerd)).
 :::
 
-### Git installeren {#installeer-git}
+### Git installeren en configureren {#installeer-git}
 
 Download het installatieprogramma via [git-scm.com](https://git-scm.com/downloads) en voer het uit.
+
+:::warning Vergeet Git niet te configureren
+Na de installatie moet je Git nog vertellen wie je bent, met je naam en e-mailadres. Zonder die instellingen kan je niet committen. Hoe je dat doet, lees je op de Git-pagina onder [Git configureren](./git.md#git-configureren).
+:::
 
 ## Stap 2: Zet GitHub klaar {#stap-2-zet-github-klaar}
 
