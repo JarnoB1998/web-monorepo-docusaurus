@@ -3,6 +3,10 @@
 Richtlijnen voor het werken aan deze cursus (Docusaurus-site). Dit bestand wordt
 automatisch ingeladen en is versiebeheerd, zodat afspraken met het team gedeeld worden.
 
+## Algemene afspraken
+- Taal is Vlaams-Nederlands, maar je mag Engelse termen gebruiken waar nodig (bv. in code, in componenten, in quizzen).
+- Vermijd het gebruik van em-dashes.
+
 ## Quizzes ("Test je kennis")
 
 - De sectiekop boven een quiz in de markdown is **`## Test je kennis`** — niet `## Quiz`.

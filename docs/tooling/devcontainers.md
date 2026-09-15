@@ -3,18 +3,9 @@ import ReactPlayer from 'react-player'
 
 # Devcontainers
 
-<ReactPlayer 
-    src='https://www.youtube.com/watch?v=Z7bCqFxC5cM' 
-    style={{ marginBottom: '20px', width: '100%', height: 'auto', aspectRatio: '16/9' }}
-/>
-
-:::danger
-In het filmpje wordt er gebruik gemaakt van `wsl --install` om wsl te installeren. Gebruik in de plaats `wsl --install --no-distribution` want anders zal deze ook Ubuntu installeren.
-:::
-
 ## Dev Environment
 
-Een Dev Environment is simpelweg een systeem waar alle software, tools en hardware op geïnstalleerd zijn, zodat jij kunt programmeren aan een specifiek project. Met software en tools wordt echt alles bedoeld dat je gebruikt tijdens het programmeren:
+Een Dev Environment (ontwikkelomgeving) is simpelweg een systeem waar alle software, tools en hardware op geïnstalleerd zijn, zodat jij kunt programmeren aan een specifiek project. Met software en tools wordt echt alles bedoeld dat je gebruikt tijdens het programmeren:
 
 * Code Editors (bv. VS Code of Visual Studio)
 * Plugins (bv. een Markdown extension in VS Code)
@@ -24,7 +15,7 @@ Een Dev Environment is simpelweg een systeem waar alle software, tools en hardwa
 
 Meestal heb je op één toestel meerdere Dev Environments geïnstalleerd. Het is nu eenmaal niet praktisch om rond te lopen met 5 laptops...
 
-## Dev Environment Problemen
+### Dev environment problemen
 
 Een Dev Environment is dus vaak een complex systeem van allerlei software, tools en specifieke instellingen die samenwerken om een stuk software te ontwikkelen. Wat kan er allemaal misgaan?
 
@@ -44,25 +35,13 @@ Voor je nieuwste projecten heb je NodeJS geupdate naar de nieuwste versie. Oeps!
 
 Alles werkt perfect op jouw systeem, en ook op die van je teamgenoten. Maar tijdens het deployen naar de server, merk je dat je software niet werkt. Tijd om ELKE tool en software die je gebruikt (opnieuw) na te kijken op versie nummer!
 
-## Docker to the Rescue!
+### Docker to the Rescue!
 
-We kunnen een Docker Container zo samenstellen dat alle tools en instellingen daarin geïnstalleerd staan. Je installeert niets meer op je eigen systeem, alles zit netjes verpakt in een Docker Container! Zo'n Docker Container waarin je je Dev Environment opslaat voor één specifiek project, dàt heet een DevContainer.
+We kunnen een Docker Container zo samenstellen dat alle tools en instellingen daarin geïnstalleerd staan. Je installeert niets meer op je eigen systeem, alles zit netjes verpakt in een Docker Container! Zo'n Docker Container waarin je je Dev Environment opslaat voor één specifiek project, dàt heet een DevContainer. In de volgende secties leggen we uit hoe je een DevContainer kan opzetten voor je project om zo aan de slag te gaan met je labo's.
 
-### Wat Heb je Nodig?
+### Dev environment setup
 
-Je hebt in feite slechts 3 programma's nodig op je computer:
-
-* Git
-* Docker Desktop\*
-* Visual Studio Code&#x20;
-
-_\*Om Docker te laten werken moet je WSL geïnstalleerd hebben op je Windows computer. Dus in principe moet je 3 dingen installeren._
-
-## Devcontainers (1st time setup)
-
-### Installation
-
-#### install WSL
+#### Installeer WSL
 
 Open Powershell **als administrator**.
 
@@ -98,7 +77,7 @@ wsl --install --no-distribution
 
 Meer informatie vind je op:[ https://learn.microsoft.com/en-us/windows/wsl/install](https://learn.microsoft.com/en-us/windows/wsl/install)
 
-#### Install Docker Desktop
+#### Installeer Docker Desktop
 
 Ga naar [https://www.docker.com/products/docker-desktop/](https://www.docker.com/products/docker-desktop/)
 
@@ -108,19 +87,30 @@ Download het installie-programma en voer het programma uit.
 Je hoeft **GEEN** account te maken om docker desktop te installeren. Als je dit wel doet moet kijk dan in je email naar een verificatiemail.
 :::
 
-#### Install Git
+#### Installeer Git
 
 Ga naar [https://git-scm.com/downloads](https://git-scm.com/downloads)
 
 Download het installie-programma en voer het programma uit.
 
-#### Install Visual Studio Code
+#### Maak een Github Account aan
+
+Maak een GitHub-account aan met je AP e-mailadres, of log in op je bestaande account. Heb je al een GitHub-account met een persoonlijk e-mailadres? Dan kan je jouw AP e-mailadres als secundair adres toevoegen in de instellingen.
+
+#### Maak een labo-repository aan
+
+1. Ga naar Github en zorg dat je ingelogd bent.
+2. Klik op de tab **Repositories** en vervolgens op **New repository**.
+3. Geef je labo repository een naam bv. `webontwikkeling-labo`.
+4. Kies voor een **Private** repository. De rest van de instellingen laat je op de standaardwaarden staan. Klik op **Create repository**.
+
+#### Installeer Visual Studio Code
 
 Ga naar [https://code.visualstudio.com/](https://code.visualstudio.com/)
 
-Download het installie-programma en voer het programma uit.
+Download het installatie-bestand en voer het uit.
 
-#### Install the VS Code Extensions
+#### VS Code Extensions
 
 Open Visual Studio Code.
 
@@ -132,45 +122,72 @@ Dit installeert 4 extensies in VS Code die je helpen met ontwikkeling in DevCont
 
 Tenslotte installeer je nog de "Github Pull Request" extention: [https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)
 
-#### Authenticatie met Github
+#### Authenticeer met Github in VS Code
 
-Klik in Visual Studio Code in de linkeronderhoek op het "avatar" icoontje.&#x20;
+Klik in Visual Studio Code in de linkeronderhoek op het "avatar" icoontje.
 
 <figure><img src={require("/assets/Screenshot 2025-02-05 at 12.41.46.png").default} alt="" /><figcaption><p>De positie van het Accounts menu</p></figcaption></figure>
 
-Kies vervolgens " Sign in to GitHub to use GitHub Pull Requests".  Vervolgens zou er een browser venster moeten openen die je vraagt om te authenticeren via Github. Doe dit met je Github AP account.
+Kies vervolgens "Sign in to GitHub to use GitHub Pull Requests". Vervolgens zou er een browser venster moeten openen die je vraagt om te authenticeren via Github. Doe dit met je Github account.
 
 :::info
 Pro Tip: in hetzelfde menu vind je ook "Sign in to sync settings" terug. Indien je dit doet worden alle Visual Studio Code instellingen gesynchroniseerd met GitHub. Als je dus ooit Visual Studio Code installeert op een andere computer zal deze automatisch dezelfde instellingen krijgen.
 :::
 
-### Starting a DevContainer from a Github Repo
+#### Labo devcontainer aanmaken
 
-Maak een nieuwe Github Repo (tijdens onze lessen gebruik je de Github url op Digitap) of gebruik een bestaande Github Repo.
+Zoek de labo-repo die je eerder aanmaakte op in Github.
 
-* [ ] Kopieer de HTTPS Git URL (vanuit de groene "Code" knop op de repo pagina).
-* [ ] Open VS Code.
-* [ ] Open het Command Pallette (CTRL + SHIFT + P)
-* [ ] Zoek naar het command "Dev Containers: Clone Repository in Container Volume..."
-* [ ] Druk Enter
-* [ ] Plak de HTTPS Git URL die je kopieerde vanuit je Github Repo
-* [ ] Druk Enter
+1. Kopieer de HTTPS Git URL (vanuit de groene "Code" knop op de repo pagina).
+2. Open VS Code.
+3. Open het Command Palette (CTRL + SHIFT + P).
+4. Zoek naar het command `Dev Containers: Clone Repository in Container Volume...` en druk Enter.
+5. Plak de HTTPS Git URL die je kopieerde en druk Enter.
+6. Kies `main` als branch.
+7. Als er gevraagd wordt naar de container template: kies `Node JS & Typescript`.
+8. Als er gevraagd wordt welke versie van Node JS je wil gebruiken: kies `24-trixie`.
+9. Als er gevraagd wordt welke extra features je wil installeren: kies `ts-node`.
+10. Vervolgens zal de devcontainer worden opgestart en kan je beginnen met het project. Kijk zeker na dat je een bestand kan pushen naar de repository.
 
-Als je Github Repo reeds een Devcontainer gebruikte (meestal een `devcontainer.json` bestand in een mapje genaamd `.devcontainer`), zal de devcontainer nu gestart worden. **De eerste keer zal een tijdje duren**, want Docker moet alle nodige bestanden downloaden.
+Je kan nakijken of alles correct is ingesteld door het bestand `.devcontainer/devcontainer.json` te openen. Hierin zou je volgende code moeten zien:
 
-Als je Github Repo nog geen Devcontainer gebruikte, zal VS Code je een aantal vragen stellen:
+```json
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
+{
+  "name": "Node.js & TypeScript",
+  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:5-24-trixie",
+  "features": {
+    "ghcr.io/devcontainers-extra/features/ts-node:1": {}
+  }
 
-* [ ] Wat voor omgeving je wilt opzetten:
-  * e.g. typescript & Node, Python, C#, ...
-* [ ] Welke versie van die omgeving je wilt gebruiken:
-  * e.g. The version of Node
-* [ ] Welke extra tools je wilt gebruiken in je omgeving:
-  * e.g. Angular CLI, database tools, ...
-* [ ] Welke versie van die tools je wilt gebruiken.
+  // Features to add to the dev container. More info: https://containers.dev/features.
+  // "features": {},
 
-Wanneer je alle vragen hebt beantwoord, wordt het `devcontainer.json` bestand aangemaakt en wordt de devcontainer opgestart.
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [],
 
-### Trouble Shooting
+  // Use 'postCreateCommand' to run commands after the container is created.
+  // "postCreateCommand": "yarn install",
+
+  // Configure tool-specific properties.
+  // "customizations": {},
+
+  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+  // "remoteUser": "root"
+}
+```
+
+### Troubleshooting
+
+#### Meerdere Github accounts
+
+Als je meerdere Github accounts hebt, kan het zijn dat je problemen ondervindt bij het clonen van je private repo: je computer probeert dan in te loggen met het verkeerde account.
+
+Het kan ook helpen om je github account te verwijderen uit de Windows Credential Manager. Zoek in Windows naar "Credential Manager" (in het Nederlands: Aanmeldingsgegevensbeheer of Referentiebeheer) en verwijder alle credentials die beginnen met "git:https://github.com".
+
+De beste manier om dit probleem te vermijden is om slechts één Github account te gebruiken. Weet dat je meerdere e-mailadressen kan toevoegen aan je Github account, dus je kan je AP e-mailadres toevoegen aan je persoonlijke Github account.
 
 #### WSL versie is niet up-to-date
 
@@ -188,10 +205,10 @@ wsl --update
 
 * Hierna kan je best je computer herstarten om zeker te zijn dat alles goed werkt.
 
-### Repository Access Issue
+#### Docker e-mailadres niet geverifieerd
 
-Krijg je deze error tijdens het accepteren van een github classroom
+Het kan gebeuren dat de devcontainer niet opstart omdat je Docker account niet geverifieerd is. Je hoeft niet per se een Docker account te hebben, maar als je er wel één hebt **moet** je dit e-mailadres verifiëren. Doe dit door in te loggen op [https://hub.docker.com/](https://hub.docker.com/) en klik op de link in de verificatiemail die je van Docker kreeg.
 
-<figure><img src={require("/assets/image.png").default} alt="" /><figcaption></figcaption></figure>
+#### Virtualisatie is niet ingeschakeld in BIOS
 
-Kijk je mail na voor een invite link. Deze link wordt pas verstuurd als je deze error hebt gekregen.
+Als je de devcontainer probeert te openen, maar je krijgt een foutmelding dat virtualisatie niet ingeschakeld is in BIOS, dan moet je dit inschakelen. Hoe je dit kunt doen hangt af van je computer. Zoek op Google naar "enable virtualization in BIOS" en de naam van je computer of moederbord, of vraag hulp aan de lector.

@@ -124,12 +124,12 @@ Log in Visual Studio Code in met GitHub.
 
 ---
 
-## Github Classroom
+## Eigen Repository Aanmaken
 
-- Ga naar https://classroom.github.com/a/QN-7bCPi
-- Zoek je naam en klik op "Accept this assignment" 
-- Je wordt doorgestuurd naar GitHub om een repository aan te maken.
-- Indien je geen access hebt (kijk je mail na)
+- Ga naar Github en zorg dat je ingelogd bent.
+- Klik op de tab **Repositories** en vervolgens op **New repository**.
+- Kies een naam en een **Private** repository.
+- Klik op **Create repository**.
 
 ---
 
