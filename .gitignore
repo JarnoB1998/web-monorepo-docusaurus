@@ -22,3 +22,8 @@ yarn-error.log*
 
 # Generated exercise zips
 /static/exercises/
+
+# Assembled course (all content is generated from the monorepo)
+/.course/
+/.course-tmp-*/
+/build_output.log
