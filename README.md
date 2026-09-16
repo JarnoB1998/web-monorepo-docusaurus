@@ -99,10 +99,14 @@ bijgewerkt. Voer in de cursusrepository uit:
 ```bash
 git submodule update --remote --checkout course-material
 npm run setup
+npm ci --prefix course-material
 npm run build
 git add course-material
 git commit -m "Update shared course material"
 ```
+
+Gebruik tijdens deze update rechtstreeks `npm ci --prefix course-material`;
+`npm run setup` herstelt de momenteel vastgelegde submodule-commit.
 
 Publiceer de monorepo-commit voordat je de bijbehorende cursusverwijzing
 publiceert, zodat andere checkouts en CI die commit kunnen ophalen. De
