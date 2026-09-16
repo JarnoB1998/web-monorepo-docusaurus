@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rekenwonder</title>
+        <link rel="stylesheet" href="/css/style.css" />
+    </head>
+    <body>
+        <section class="container">
+            <section class="feedback">
+                The answer is 1 and your answer is 1. Correct!
+            </section>
+            <form class="math-form" method="post">
+                <input type="number" name="number1" value="6" class="num1" readonly />
+                <input type="hidden" name="operator" value="/" />
+                <span class="operator">
+                    
+                    <img src="/images/division.png" alt="divide" />
+                    
+                </span>
+                <input type="number" name="number2" value="1" class="num1" readonly />
+                <span class="equals">
+                    <img src="/images/equals.png" alt="equals" />
+                </span>
+                <input type="number" name="result" value="0" class="result" />
+                <input type="submit" value="Check" class="check" />
+            </form>
+
+            <div class="score">
+                1 of 1 correct.
+            </div>
+        </div>
+    </body>
+</html>

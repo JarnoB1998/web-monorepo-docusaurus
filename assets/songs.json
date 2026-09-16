@@ -1,0 +1,236 @@
+[
+  {
+    "id": 1,
+    "name": "Smells Like Space Invaders",
+    "album": "Alien Angst",
+    "duration": 210,
+    "artist": "Nirvatar",
+    "genre": "Grunge",
+    "image": "https://res.cloudinary.com/dxkfngduo/image/upload/v1683140342/Smells%20Like%20Space%20Invaders.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Bohemian Odyssey",
+    "album": "Final Fantasia",
+    "duration": 355,
+    "artist": "Gamercury",
+    "genre": "Rock",
+    "image": "https://res.cloudinary.com/dxkfngduo/image/upload/v1683140364/Bohemian%20Odyssey.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Stairway to Hyrule",
+    "album": "Zepplin's Lullaby",
+    "duration": 480,
+    "artist": "Led Lonk",
+    "genre": "Classic Rock",
+    "image": "https://res.cloudinary.com/dxkfngduo/image/upload/v1683140386/Stairway%20to%20Hyrule.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Superstitious Plumber",
+    "album": "Retro Grooves",
+    "duration": 270,
+    "artist": "Stevie Wonderworld",
+    "genre": "Soul",
+    "image": "https://res.cloudinary.com/dxkfngduo/image/upload/v1683140397/Superstitious%20Plumber.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Purple Space Raiders",
+    "album": "Cosmic Haze",
+    "duration": 260,
+    "artist": "Jimi Hendrixel",
+    "genre": "Psychedelic Rock",
+    "image": "https://res.cloudinary.com/dxkfngduo/image/upload/v1683140419/Purple%20Space%20Raiders.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Viva La Minecraft",
+    "album": "Square Rebellion",
+    "duration": 245,
+    "artist": "ColdCubed",
+    "genre": "Alternative Rock",
+    "image": "https://res.cloudinary.com/dxkfngduo/image/upload/v1683140431/Viva%20La%20Minecraft.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Rolling in the Dungeon",
+    "album": "Dragon's Fire",
+    "duration": 228,
+    "artist": "Adele of the Ancients",
+    "genre": "Pop",
+    "image": "https://res.cloudinary.com/dxkfngduo/image/upload/v1683140453/Rolling%20in%20the%20Dungeon.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Dark Side of the Mooncraft",
+    "album": "Lunar Voyage",
+    "duration": 220,
+    "artist": "Pixel Floyd",
+    "genre": "Progressive Rock",
+    "image": "https://res.cloudinary.com/dxkfngduo/image/upload/v1683140475/Dark%20Side%20of%20the%20Mooncraft.jpg"
+  },
+  {
+    "id": 9,
+    "name": "We Will Block You",
+    "album": "Gamer Champions",
+    "duration": 210,
+    "artist": "Gamercury",
+    "genre": "Rock",
+    "image": "https://res.cloudinary.com/dxkfngduo/image/upload/v1683140487/We%20Will%20Block%20You.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Under Pressure Plates",
+    "album": "Mechanical Mayhem",
+    "duration": 220,
+    "artist": "Redstone Logic",
+    "genre": "Electronic",
+    "image": "https://res.cloudinary.com/dxkfngduo/image/upload/v1683140509/Under%20Pressure%20Plates.jpg"
+  },
+  {
+    "id": 11,
+    "name": "The Final Countdown Fantasy",
+    "album": "Final Fantasia",
+    "duration": 305,
+    "artist": "Europe of Eorzea",
+    "genre": "Rock",
+    "image": "https://res.cloudinary.com/dxkfngduo/image/upload/v1683140520/The%20Final%20Countdown%20Fantasy.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Sweet Child O' MineZ",
+    "album": "Appetite for Crafting",
+    "duration": 356,
+    "artist": "Guns N' Blockses",
+    "genre": "Hard Rock",
+    "image": "https://res.cloudinary.com/dxkfngduo/image/upload/v1683140532/Sweet%20Child%20O%27%20MineZ.jpg"
+  },
+  {
+    "id": 13,
+    "name": "Thriller Nights",
+    "album": "Moonlit Moves",
+    "duration": 358,
+    "artist": "Michael Jackskeleton",
+    "genre": "Pop",
+    "image": "https://res.cloudinary.com/dxkfngduo/image/upload/v1683140554/Thriller%20Nights.jpg"
+  },
+  {
+    "id": 14,
+    "name": "Like A Rolling Pac-Man",
+    "album": "Classic Bites",
+    "duration": 232,
+    "artist": "The Rolling Pixels",
+    "genre": "Classic Rock",
+    "image": "https://res.cloudinary.com/dxkfngduo/image/upload/v1683140576/Like%20A%20Rolling%20Pac-Man.jpg"
+  },
+  {
+    "id": 15,
+    "name": "Don't Stop Believix",
+    "album": "The Winx Rock",
+    "duration": 240,
+    "artist": "Fairy Escape",
+    "genre": "Rock",
+    "image": "https://res.cloudinary.com/dxkfngduo/image/upload/v1683140598/Don%27t%20Stop%20Believix.jpg"
+  },
+  {
+    "id": 16,
+    "name": "Rocket Mario",
+    "album": "Super Odyssey",
+    "duration": 235,
+    "artist": "Elton Toad",
+    "genre": "Pop",
+    "image": "https://res.cloudinary.com/dxkfngduo/image/upload/v1683140620/Rocket%20Mario.jpg"
+  },
+  {
+    "id": 17,
+    "name": "Hotel California Republic",
+    "album": "Wasteland Serenade",
+    "duration": 390,
+    "artist": "Fallout Eagles",
+    "genre": "Classic Rock",
+    "image": "https://res.cloudinary.com/dxkfngduo/image/upload/v1683140642/Hotel%20California%20Republic.jpg"
+  },
+  {
+    "id": 18,
+    "name": "Sonic's Heart-Shaped Box",
+    "album": "In Bloom",
+    "duration": 280,
+    "artist": "Nirvatar",
+    "genre": "Grunge",
+    "image": "https://res.cloudinary.com/dxkfngduo/image/upload/v1683140663/Sonic%27s%20Heart-Shaped%20Box.jpg"
+  },
+  {
+    "id": 19,
+    "name": "Creepers in the Wind",
+    "album": "Green Essence",
+    "duration": 230,
+    "artist": "Elton Toad",
+    "genre": "Pop",
+    "image": "https://res.cloudinary.com/dxkfngduo/image/upload/v1683140685/Creepers%20in%20the%20Wind.jpg"
+  },
+  {
+    "id": 20,
+    "name": "With or Without Uruk-hai",
+    "album": "Middle-earth Melodies",
+    "duration": 295,
+    "artist": "U2-niverse",
+    "genre": "Rock",
+    "image": "https://res.cloudinary.com/dxkfngduo/image/upload/v1683140707/With%20or%20Without%20Uruk-hai.jpg"
+  },
+  {
+    "id": 21,
+    "name": "Come As You A.I.",
+    "album": "Digital Nirvana",
+    "duration": 245,
+    "artist": "Nirvatar",
+    "genre": "Grunge",
+    "image": "https://res.cloudinary.com/dxkfngduo/image/upload/v1683141193/Come%20As%20You%20A.I..jpg"
+  },
+  {
+    "id": 22,
+    "name": "Lithium Batteries",
+    "album": "Electric Unplugged",
+    "duration": 255,
+    "artist": "Nirvatar",
+    "genre": "Grunge",
+    "image": "https://res.cloudinary.com/dxkfngduo/image/upload/v1683141216/Lithium%20Batteries.jpg"
+  },
+  {
+    "id": 23,
+    "name": "Tiny Mushroom Dancer",
+    "album": "Mushroom Kingdom Melodies",
+    "duration": 310,
+    "artist": "Elton Toad",
+    "genre": "Pop",
+    "image": "https://res.cloudinary.com/dxkfngduo/image/upload/v1683141462/Tiny%20Mushroom%20Dancer.jpg"
+  },
+  {
+    "id": 24,
+    "name": "Your Goomba",
+    "album": "Super Odyssey",
+    "duration": 320,
+    "artist": "Elton Toad",
+    "genre": "Pop",
+    "image": "https://res.cloudinary.com/dxkfngduo/image/upload/v1683141474/Your%20Goomba.jpg"
+  },
+  {
+    "id": 25,
+    "name": "Goodbye Yellow Brick Bowser",
+    "album": "Mario Road",
+    "duration": 350,
+    "artist": "Elton Toad",
+    "genre": "Pop",
+    "image": "https://res.cloudinary.com/dxkfngduo/image/upload/v1683141496/Goodbye%20Yellow%20Brick%20Bowser.jpg"
+  },
+  {
+    "id": 26,
+    "name": "I'm Still Standing (on a Platform)",
+    "album": "Jumpman's Journey",
+    "duration": 220,
+    "artist": "Elton Toad",
+    "genre": "Pop",
+    "image": "https://res.cloudinary.com/dxkfngduo/image/upload/v1683141517/I%27m%20Still%20Standing%20%28on%20a%20Platform%29.jpg"
+  }
+]

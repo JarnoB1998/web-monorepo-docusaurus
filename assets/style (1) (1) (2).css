@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background: linear-gradient(to bottom right, #ff758c, #ff7eb3, #8b78ff);
+}
+
+.math-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    position: relative; /* Add position relative to parent */
+    padding-bottom: 80px;
+}
+
+.math-form input[type="number"] {
+    width: 100px;
+    height: 50px;
+    background-color: #f5f5f5;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    color: #ff758c;
+}
+
+.math-form .operator {
+    font-size: 36px;
+    font-weight: bold;
+    color: #ff7eb3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.math-form .equals {
+    font-size: 36px;
+    font-weight: bold;
+    color: #8b78ff;
+}
+
+.math-form .check {
+    position: absolute; /* Add position absolute to the button */
+    bottom: 0; /* Align the button to the bottom */
+    left: 0; /* Align the button to the left */
+    width: 100%; /* Make the button full width */
+    height: 50px;
+    font-size: 24px;
+    background: #8b78ff;
+    color: #fff;
+    border: none;
+    border-radius: 0 0 10px 10px; /* Rounded bottom */
+    cursor: pointer;
+}
+
+.math-form img {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+}
+
+.feedback {
+    color: white;
+    text-shadow: 2px 2px #8b78ff;
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.score {
+    color: white;
+    text-shadow: 2px 2px #8b78ff;
+    font-size: 22px;
+    text-align: center;
+    margin-top: 10px;
+}
