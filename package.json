@@ -1,20 +1,16 @@
 {
-  "name": "node-express-course",
+  "name": "web-monorepo-docusaurus",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "docusaurus": "docusaurus",
-    "start": "docusaurus start",
-    "dev": "docusaurus start",
-    "build": "node scripts/build-exercises.cjs && docusaurus build",
-    "swizzle": "docusaurus swizzle",
-    "deploy": "docusaurus deploy",
-    "clear": "docusaurus clear",
-    "serve": "docusaurus serve",
-    "write-translations": "docusaurus write-translations",
-    "write-heading-ids": "docusaurus write-heading-ids",
-    "build:exercises": "node scripts/build-exercises.cjs",
-    "typecheck": "tsc"
+    "assemble": "node scripts/course.cjs assemble",
+    "start": "node scripts/course.cjs start",
+    "dev": "node scripts/course.cjs start",
+    "build": "node scripts/course.cjs build",
+    "serve": "node scripts/course.cjs serve",
+    "clear": "node scripts/course.cjs clear",
+    "typecheck": "node scripts/course.cjs typecheck",
+    "test": "node --test scripts/tests/*.test.cjs"
   },
   "dependencies": {
     "@docusaurus/core": "3.9.2",
@@ -32,7 +28,9 @@
     "@docusaurus/tsconfig": "3.9.2",
     "@docusaurus/types": "3.9.2",
     "archiver": "^8.0.0",
-    "typescript": "~5.6.2"
+    "typescript": "~5.6.2",
+    "@docusaurus/utils": "3.9.2",
+    "@docusaurus/plugin-content-docs": "3.9.2"
   },
   "browserslist": {
     "production": [
@@ -47,6 +45,6 @@
     ]
   },
   "engines": {
-    "node": ">=20.0"
+    "node": ">=22.0"
   }
 }

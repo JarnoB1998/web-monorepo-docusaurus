@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'Webontwikkeling',
+  title: 'Webcursussen',
   tagline: 'A long time ago in a browser far, far away...',
   favicon: 'img/typescript.png',
 
@@ -31,15 +31,15 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://webontwikkeling.cloud-ap.be/',
+  url: 'https://similonap.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/web-monorepo-docusaurus/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'similonap', // Usually your GitHub org/user name.
-  projectName: 'webontwikkeling-docusaurus', // Usually your repo name.
+  projectName: 'web-monorepo-docusaurus', // Usually your repo name.
   trailingSlash: false,
 
   onBrokenLinks: 'warn',
@@ -63,7 +63,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/similonap/web-monorepo-docusaurus/edit/main/',
         },
         blog: false, // Disable blog for now to focus on the course
         theme: {
@@ -82,7 +82,7 @@ const config: Config = {
       disableSwitch: false,
     },
     navbar: {
-      title: 'Webontwikkeling',
+      title: 'Webcursussen',
       logo: {
         alt: 'TypeScript Logo',
         src: 'img/typescript.png',
@@ -90,21 +90,9 @@ const config: Config = {
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'theorieSidebar',
+          sidebarId: 'allTopicsSidebar',
           position: 'left',
-          label: 'Theorie',
-        },
-        {
-          type: 'docSidebar',
-          sidebarId: 'labosSidebar',
-          position: 'left',
-          label: 'Labos',
-        },
-        {
-          type: 'docSidebar',
-          sidebarId: 'projectSidebar',
-          position: 'left',
-          label: 'Project',
+          label: 'Alle onderwerpen',
         },
         {
           href: 'https://github.com/similon',

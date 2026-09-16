@@ -4,5 +4,6 @@
   "compilerOptions": {
     "baseUrl": "."
   },
-  "exclude": [".docusaurus", "build"]
+  "include": ["src", "*.ts", "*.mts", "*.cts", "config"],
+  "exclude": [".docusaurus", ".course", ".course-tmp-*", "build"]
 }
