@@ -38,10 +38,6 @@ Bekijk voor het labo aan te vangen eerst de volgende topics:
 
 [form-express-test](../../exercises/express/form-express-test/README.md)
 
-### Form test
-
-[form-test](../../exercises/express/form-test/README.md)
-
 ### Contact form test
 
 [contact-form-test](../../exercises/express/contact-form-test/README.md)

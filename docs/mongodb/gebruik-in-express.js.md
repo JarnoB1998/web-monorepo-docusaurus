@@ -266,7 +266,7 @@ Dit is een voorbeeld van hoe je de code kan structureren in je Express.js applic
 
 Tot nu toe hebben we de connectie string voor de MongoDB database hard gecodeerd in onze applicatie. Dit is echter geen goede manier van werken. Het is beter om de connectie string op te slaan in een environment variabele. Zo kan je de connectie string makkelijk aanpassen zonder dat je de code moet aanpassen.
 
-Je kan meer over environment variabelen lezen in [dit hoofdstuk](../security-and-testing/environment-variables.md).
+Je kan meer over environment variabelen lezen in [dit hoofdstuk](../security/environment-variables.md).
 
 Je maakt dan een `.env` bestand aan in de root van je project en plaatst daar de connectie string in.
 

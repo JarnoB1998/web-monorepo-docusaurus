@@ -4,9 +4,9 @@
 
 Bekijk voor het labo aan te vangen eerst de volgende topics:
 
-* [Modules](../../nodejs-+-typescript/modules-testing-npm/modules.md)
+* [Modules](../../nodejs-+-typescript/modules-npm/modules.md)
 * [Testing](../../nodejs-+-typescript/testing.md)
-* [NPM Packages](../../nodejs-+-typescript/modules-testing-npm/npm-packages.md)
+* [NPM Packages](../../nodejs-+-typescript/modules-npm/npm-packages.md)
 
 ## Oefeningen modules
 
