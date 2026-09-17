@@ -1,0 +1,11 @@
+body { font-family: sans-serif; line-height: 1.5; max-width: 65rem; margin: 2rem auto; padding: 0 1rem; }
+form { display: grid; gap: .5rem; max-width: 30rem; margin-bottom: 1.5rem; }
+input, select, button { font: inherit; padding: .4rem; }
+button { cursor: pointer; margin: .2rem; }
+button:disabled { cursor: default; }
+table { border-collapse: collapse; width: 100%; margin-bottom: 1rem; }
+th, td { border-bottom: 1px solid #ddd; text-align: left; padding: .5rem; }
+.cards { display: flex; flex-wrap: wrap; gap: 1rem; }
+article { border: 1px solid #ddd; border-radius: .3rem; padding: 1rem; min-width: 10rem; }
+article img { width: 96px; height: 96px; }
+#message { min-height: 1.5rem; }

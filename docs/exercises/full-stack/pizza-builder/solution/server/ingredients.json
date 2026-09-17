@@ -1,0 +1,87 @@
+[
+  {
+    "id": 1,
+    "name": "Tomatensaus",
+    "type": "sauce"
+  },
+  {
+    "id": 2,
+    "name": "BBQ-saus",
+    "type": "sauce"
+  },
+  {
+    "id": 3,
+    "name": "Witte knoflooksaus",
+    "type": "sauce"
+  },
+  {
+    "id": 4,
+    "name": "Mozzarella",
+    "type": "cheese"
+  },
+  {
+    "id": 5,
+    "name": "Cheddar",
+    "type": "cheese"
+  },
+  {
+    "id": 6,
+    "name": "Geitenkaas",
+    "type": "cheese"
+  },
+  {
+    "id": 7,
+    "name": "Blauwe kaas",
+    "type": "cheese"
+  },
+  {
+    "id": 8,
+    "name": "Pepperoni",
+    "type": "topping"
+  },
+  {
+    "id": 9,
+    "name": "Champignons",
+    "type": "topping"
+  },
+  {
+    "id": 10,
+    "name": "Rode ui",
+    "type": "topping"
+  },
+  {
+    "id": 11,
+    "name": "Olijven",
+    "type": "topping"
+  },
+  {
+    "id": 12,
+    "name": "Ananas",
+    "type": "topping"
+  },
+  {
+    "id": 13,
+    "name": "Paprika",
+    "type": "topping"
+  },
+  {
+    "id": 14,
+    "name": "Spek",
+    "type": "topping"
+  },
+  {
+    "id": 15,
+    "name": "Spinazie",
+    "type": "topping"
+  },
+  {
+    "id": 16,
+    "name": "Artisjok",
+    "type": "topping"
+  },
+  {
+    "id": 17,
+    "name": "Kip",
+    "type": "topping"
+  }
+]

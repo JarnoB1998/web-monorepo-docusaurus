@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokémon vangen</title>
+</head>
+<body>
+    <main>
+        <h1>Pokémon vangen</h1>
+        <nav>
+            <button id="show-overview" type="button">Alle Pokémon</button>
+            <button id="show-owned" type="button">Gevangen Pokémon</button>
+        </nav>
+        <section id="overview-section">
+            <h2>Overzicht</h2>
+            <div id="overview" class="cards"></div>
+            <button id="previous" type="button">Vorige</button>
+            <span id="page-number"></span>
+            <button id="next" type="button">Volgende</button>
+        </section>
+        <section id="owned-section" hidden>
+            <h2>Gevangen Pokémon</h2>
+            <div id="owned" class="cards"></div>
+        </section>
+        <p id="message" role="status"></p>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

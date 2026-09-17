@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pizza Builder</title>
+</head>
+<body>
+    <main>
+        <h1>Pizza Builder</h1>
+        <form id="pizza-form">
+            <label for="name">Naam van je pizza</label><input id="name" maxlength="100" required />
+            <label for="sauce">Saus</label><select id="sauce" required></select>
+            <label for="cheese">Kazen</label><select id="cheese" multiple size="4"></select>
+            <label for="toppings">Toppings</label><select id="toppings" multiple size="6"></select>
+            <p>Houd Ctrl (Windows) of Command (Mac) ingedrukt om meerdere opties te selecteren.</p>
+            <button type="submit">Pizza opslaan</button>
+        </form>
+        <h2>Pizza Overview</h2>
+        <div id="pizzas" class="cards"></div>
+        <p id="message" role="status"></p>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

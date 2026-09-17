@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reiskosten</title>
+</head>
+<body>
+    <main>
+        <h1>Reiskosten</h1>
+        <h2>Nieuwe reis</h2>
+        <form id="reis-form">
+            <label for="bestemming">Bestemming</label><input id="bestemming" maxlength="100" required />
+            <label for="jaar">Jaar</label><input id="jaar" type="number" min="1" max="9999" required />
+            <button type="submit">Reis toevoegen</button>
+        </form>
+        <h2>Reizen</h2>
+        <table><thead><tr><th>Bestemming</th><th>Jaar</th><th></th></tr></thead><tbody id="reizen"></tbody></table>
+        <section id="kosten-section" hidden>
+            <h2 id="kosten-title">Kosten</h2>
+            <form id="kost-form">
+                <label for="uitgave">Uitgave</label><input id="uitgave" maxlength="100" required />
+                <label for="prijs">Prijs</label><input id="prijs" type="number" min="0" step="0.01" required />
+                <button type="submit">Kost toevoegen</button>
+            </form>
+            <table><thead><tr><th>Uitgave</th><th>Prijs</th></tr></thead><tbody id="kosten"></tbody></table>
+            <p id="totaal"></p>
+        </section>
+        <p id="message" role="status"></p>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

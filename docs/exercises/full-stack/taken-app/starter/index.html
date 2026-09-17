@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taken</title>
+</head>
+<body>
+    <main>
+        <h1>Taken</h1>
+        <form id="task-form">
+            <label for="omschrijving">Omschrijving</label><input id="omschrijving" maxlength="255" required />
+            <label for="naam">Naam</label><input id="naam" maxlength="100" required />
+            <label><input id="urgent" type="checkbox" /> Hoge prioriteit</label>
+            <button type="submit">Taak toevoegen</button>
+        </form>
+        <button id="execute" type="button">Eerste taak uitvoeren</button>
+        <ol id="tasks"></ol>
+        <p id="message" role="status"></p>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
