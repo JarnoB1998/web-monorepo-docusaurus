@@ -1,6 +1,6 @@
 import express from "express";
-import { createTweet, getProfileByHandle, getTweets, getTweetsByHandle } from "./data";
-import {Profile, Tweet } from "./types";
+import { createTweet, getProfileByHandle, getTweets, getTweetsByHandle } from "./data.ts";
+import {type Profile, type Tweet } from "./types.ts";
 
 const app = express();
 

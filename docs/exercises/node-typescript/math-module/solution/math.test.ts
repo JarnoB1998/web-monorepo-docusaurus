@@ -1,4 +1,5 @@
-import { add, subtract, multiply, divide, power } from './math';
+import { describe, expect, test } from "vitest";
+import { add, subtract, multiply, divide, power } from './math.ts';
 
 describe('add', () => {
     test('should return the sum of two positive numbers', () => {

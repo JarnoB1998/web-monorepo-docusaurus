@@ -1,6 +1,6 @@
-import express, { Express } from "express";
+import express, { type Express } from "express";
 import "dotenv/config";
-import { reizenRouter } from "./routers/reizen_api";
+import { reizenRouter } from "./routers/reizen_api.ts";
 
 const app: Express = express();
 app.set("port", Number(process.env.PORT ?? 3000));

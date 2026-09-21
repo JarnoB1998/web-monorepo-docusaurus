@@ -1,4 +1,5 @@
-import { repeatWords } from "./utils";
+import { describe, expect, test } from "vitest";
+import { repeatWords } from "./utils.ts";
 
 describe("repeatWords", () => {
     test("herhaalt het woord het juiste aantal keer", () => {

@@ -4,7 +4,7 @@ Vertrek vanuit je eigen oplossing van de <a href="../petshelter-form">Pet Shelte
 
 - Splits de applicatie op in een `app.ts` en een `index.ts` zodat je hem kan testen.
 
-Schrijf de volgende testen aan de hand van `jest` en `supertest`:
+Schrijf de volgende testen aan de hand van `vitest` en `supertest`:
 
 - Test dat `GET /` een pagina teruggeeft met een formulier.
 - Test dat het formulier een invoerveld voor de naam bevat.

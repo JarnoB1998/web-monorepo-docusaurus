@@ -1,6 +1,6 @@
-import express, { Request, Response, Express } from "express";
-import { createTweet, getProfileByHandle, getTweets, getTweetsByHandle } from "./data";
-import { Profile, Tweet } from "./types";
+import express, { type Request, type Response, type Express } from "express";
+import { createTweet, getProfileByHandle, getTweets, getTweetsByHandle } from "./data.ts";
+import { type Profile, type Tweet } from "./types.ts";
 
 const app : Express = express();
 
@@ -31,7 +31,7 @@ app.post("", async(req: Request,res: Response)=> {
     }
 });
 
-app.get("/:handle", async(req: Request,res: Response) => {
+app.get("/:handle", async(req: Request<{ handle: string }>,res: Response) => {
     let handle : string = req.params.handle;
     let profile : Profile | undefined = await getProfileByHandle(handle);
 

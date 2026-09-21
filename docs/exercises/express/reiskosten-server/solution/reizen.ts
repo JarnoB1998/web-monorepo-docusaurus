@@ -1,5 +1,5 @@
-import { Reis } from "./models/Reis";
-import { Kost } from "./models/Kost";
+import { Reis } from "./models/Reis.ts";
+import { Kost } from "./models/Kost.ts";
 
 const reizen: Reis[] = [];
 let volgendId: number = 1;

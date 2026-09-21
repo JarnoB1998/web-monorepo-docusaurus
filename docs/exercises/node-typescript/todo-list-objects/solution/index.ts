@@ -1,5 +1,5 @@
 import readline from 'readline-sync';
-import todosJson from "./todos.json";
+import todosJson from "./todos.json" with { type: "json" };
 
 interface Todo {
   id: number;

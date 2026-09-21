@@ -1,14 +1,21 @@
-import { ReisData, KostData } from "../types";
-import { Kost } from "./Kost";
+import { type ReisData, type KostData } from "../types.ts";
+import { Kost } from "./Kost.ts";
 
 export class Reis {
     private _kosten: Kost[] = [];
+    public readonly id: number;
+    public readonly bestemming: string;
+    public readonly jaar: number;
 
     public constructor(
-        public readonly id: number,
-        public readonly bestemming: string,
-        public readonly jaar: number
-    ) {}
+        id: number,
+        bestemming: string,
+        jaar: number
+    ) {
+        this.id = id;
+        this.bestemming = bestemming;
+        this.jaar = jaar;
+    }
 
     public voegKostToe(kost: Kost): void {
         this._kosten.push(kost);

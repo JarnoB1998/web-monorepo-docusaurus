@@ -1,4 +1,4 @@
-import { Song, SortDirection, SortField, User } from "./types";
+import { type Song, type SortDirection, type SortField, type User } from "./types.ts";
 
 export const songs: Song[] = [
   {

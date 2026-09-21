@@ -1,6 +1,7 @@
+import { describe, expect, test } from "vitest";
 import request from "supertest";
 import { parse } from "node-html-parser";
-import app from "./app";
+import app from "./app.ts";
 
 describe("GET /", () => {
     test("should return the pet shelter form", async () => {

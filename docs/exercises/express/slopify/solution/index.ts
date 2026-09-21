@@ -1,8 +1,8 @@
-import express, { Express } from "express";
+import express, { type Express } from "express";
 import dotenv from "dotenv";
 import path from "path";
-import { addCredits, buySong, getCurrentUser, getSongById, getSongs } from "./data";
-import { Song, User } from "./types";
+import { addCredits, buySong, getCurrentUser, getSongById, getSongs } from "./data.ts";
+import { type Song, type User } from "./types.ts";
 
 dotenv.config();
 
@@ -11,17 +11,18 @@ const app : Express = express();
 app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "public")));
-app.set('views', path.join(__dirname, "views"));
+app.use(express.static(path.join(import.meta.dirname, "public")));
+app.set('views', path.join(import.meta.dirname, "views"));
 
 app.set("port", process.env.PORT || /* istanbul ignore next */ 3000);
 
 app.post("/buy", async(req,res) => {
     try {
         let id : number = parseInt(req.body.id);
-        if (!isNaN(id)) {
-            await buySong(id);
+        if (isNaN(id)) {
+            throw new Error("Id must be a number");
         }
+        await buySong(id);
         
         res.redirect("/songs")
     } catch (e: any) {
@@ -101,9 +102,11 @@ app.get("/songs/:id", async(req, res) => {
     res.render("song", { song, currentUser })
 })
 
-app.listen(app.get("port"), () => {
-    console.log("Server started on http://localhost:" + app.get('port'));
-});
+if (import.meta.main) {
+    app.listen(app.get("port"), () => {
+        console.log("Server started on http://localhost:" + app.get('port'));
+    });
+}
 
 
 export { app };

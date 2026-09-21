@@ -54,7 +54,7 @@ interface Price {
 
 (async () => {
     const currency = readline.question('Welke valuta wil je zien? (EUR, USD, GBP): ');
-    const response = await fetch('https://api.coindesk.com/v1/bpi/currentprice.json');
+    const response = await fetch('https://sampleapis.assimilate.be/bitcoin/current');
     const data : RootObject = await response.json();
 
     let price: Price;

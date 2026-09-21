@@ -4,7 +4,7 @@ Vertrek vanuit je eigen oplossing van de <a href="../hello-query">Hello Express<
 
 - Splits de applicatie op in een `app.ts` en een `index.ts` zodat je hem kan testen.
 
-Schrijf de volgende testen aan de hand van `jest` en `supertest`:
+Schrijf de volgende testen aan de hand van `vitest` en `supertest`:
 
 - Test dat `GET /?language=en` de tekst "Hello World!" toont in een `<h1>` element.
 - Test dat `GET /?language=es` de tekst "¡Hola Mundo!" toont in een `<h1>` element.

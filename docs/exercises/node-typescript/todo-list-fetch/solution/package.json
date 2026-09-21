@@ -4,15 +4,26 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run typecheck && vitest run --passWithNoTests",
+    "typecheck": "tsc --noEmit",
+    "start": "npm run typecheck && node index.ts"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/node": "^20.17.19",
-    "@types/readline-sync": "^1.4.8"
+    "@types/node": "^26.6.2",
+    "@types/readline-sync": "^1.4.8",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.1"
   },
   "dependencies": {
     "readline-sync": "^1.4.10"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=24.12.0"
+  },
+  "allowScripts": {
+    "fsevents@2.3.3": true
   }
 }

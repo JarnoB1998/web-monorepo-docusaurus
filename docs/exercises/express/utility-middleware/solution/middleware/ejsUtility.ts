@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction } from 'express';
+import { type Request, type Response, type NextFunction } from 'express';
 
 export function ejsUtility(req: Request, res: Response, next: NextFunction) {
     res.locals.caesar = (str: string, shift: number) => {

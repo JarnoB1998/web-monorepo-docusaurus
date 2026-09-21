@@ -1,6 +1,6 @@
 import readline from 'readline-sync';
 import { log } from "sloth-log";
-import { repeatWords } from "./utils";
+import { repeatWords } from "./utils.ts";
 
 let input: string = "";
 do {

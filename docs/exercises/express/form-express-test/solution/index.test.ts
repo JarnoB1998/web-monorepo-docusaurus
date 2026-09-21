@@ -1,5 +1,6 @@
+import { describe, expect, it } from "vitest";
 import { parse } from "node-html-parser";
-import app from "./app";
+import app from "./app.ts";
 import request from "supertest";
 
 describe("POST /", () => {

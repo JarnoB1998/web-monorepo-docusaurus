@@ -3,17 +3,31 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "tsc",
+    "test": "npm run typecheck && vitest run --passWithNoTests",
     "typecheck": "tsc --noEmit",
-    "start": "npm run build && node dist/index.js"
+    "start": "nodemon --ext ts,json --exec \"npm run typecheck && node index.ts\""
   },
   "dependencies": {
-    "express": "5.2.1",
-    "dotenv": "16.6.1"
+    "dotenv": "^18.0.1",
+    "ejs": "^6.0.1",
+    "express": "^5.2.1"
   },
   "devDependencies": {
-    "typescript": "5.6.3",
-    "@types/node": "22.20.3",
-    "@types/express": "5.0.6"
-  }
+    "@types/ejs": "^3.1.5",
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.6.2",
+    "@types/supertest": "^7.2.1",
+    "nodemon": "^3.1.14",
+    "supertest": "^7.2.2",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.1"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=24.12.0"
+  },
+  "allowScripts": {
+    "fsevents@2.3.3": true
+  },
+  "main": "index.ts"
 }

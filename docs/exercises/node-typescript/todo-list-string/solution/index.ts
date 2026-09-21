@@ -26,7 +26,7 @@ if (option === 0) {
     }
 } else if (option === 2) {
     let taskIndex: number = readline.keyInSelect(tasks, "What did you do?", { cancel: false });
-    checkedTasks.push(tasks[taskIndex - 1]);
+    checkedTasks.push(tasks[taskIndex]);
     tasks.splice(taskIndex, 1);
 } else if (option === 3) {
     running = false;

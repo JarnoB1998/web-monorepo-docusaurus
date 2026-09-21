@@ -4,7 +4,7 @@ Vertrek vanuit je eigen oplossing van de <a href="../contact-form">Contact Form<
 
 - Splits de applicatie op in een `app.ts` en een `index.ts` zodat je hem kan testen.
 
-Schrijf de volgende testen aan de hand van `jest` en `supertest`:
+Schrijf de volgende testen aan de hand van `vitest` en `supertest`:
 
 - Test dat `GET /contact` een pagina teruggeeft met een formulier.
 - Test dat `POST /contact` met alle geldige velden een bedanktbericht toont met de naam en het e-mailadres van de gebruiker.

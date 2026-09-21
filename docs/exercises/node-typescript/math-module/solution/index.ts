@@ -1,4 +1,4 @@
-import { add, subtract, multiply, divide } from './math';
+import { add, subtract, multiply, divide } from './math.ts';
 
 console.log(add(1, 2)); // 3
 console.log(subtract(1, 2)); // -1

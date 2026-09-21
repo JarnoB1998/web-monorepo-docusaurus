@@ -1,4 +1,5 @@
-import { getStudents } from "./async";
+import { describe, expect, it } from "vitest";
+import { getStudents } from "./async.ts";
 
 describe("test for the getStudents function", () => {
     it("should return a list of students", async () => {
@@ -19,13 +20,8 @@ describe("test for the getStudents function", () => {
         expect(students).toEqual([]);
     });
 
-    it("should return an empty list if the limit is negative", async () => {
-        try {
-            await getStudents(-1);
-            fail("should have thrown an error");
-        } catch (error: any) {
-            expect(error.message).toBe("Limit must be a positive number");
-        }
+    it("should reject if the limit is negative", async () => {
+        await expect(getStudents(-1)).rejects.toThrow("Limit must be a positive number");
     });
 
     it("should return a list of students after 1 second", async () => {

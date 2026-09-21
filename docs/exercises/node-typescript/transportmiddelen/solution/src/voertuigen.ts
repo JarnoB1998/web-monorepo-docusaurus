@@ -1,10 +1,16 @@
 export type Brandstof = "BENZINE" | "ELEKTRISCH" | "GEEN";
 
 export class Voertuig {
+    protected readonly naam: string;
+    protected readonly brandstof: Brandstof;
+
     public constructor(
-        protected readonly naam: string,
-        protected readonly brandstof: Brandstof,
-    ) {}
+        naam: string,
+        brandstof: Brandstof,
+    ) {
+        this.naam = naam;
+        this.brandstof = brandstof;
+    }
 
     public rijden(): void {
         console.log(`${this.naam} rijdt met brandstof ${this.brandstof}`);

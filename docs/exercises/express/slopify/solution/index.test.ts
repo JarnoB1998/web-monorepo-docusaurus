@@ -1,15 +1,16 @@
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import request from "supertest";
-import { app } from "./index";
-import * as data from "./data";
-import { Song, User } from "./types";
+import { app } from "./index.ts";
+import * as data from "./data.ts";
+import { type Song, type User } from "./types.ts";
 
-jest.mock("./data");
+vi.mock("./data.ts");
 
-const mockGetSongs = data.getSongs as jest.MockedFunction<typeof data.getSongs>;
-const mockGetCurrentUser = data.getCurrentUser as jest.MockedFunction<typeof data.getCurrentUser>;
-const mockGetSongById = data.getSongById as jest.MockedFunction<typeof data.getSongById>;
-const mockBuySong = data.buySong as jest.MockedFunction<typeof data.buySong>;
-const mockAddCredits = data.addCredits as jest.MockedFunction<typeof data.addCredits>;
+const mockGetSongs = vi.mocked(data.getSongs);
+const mockGetCurrentUser = vi.mocked(data.getCurrentUser);
+const mockGetSongById = vi.mocked(data.getSongById);
+const mockBuySong = vi.mocked(data.buySong);
+const mockAddCredits = vi.mocked(data.addCredits);
 
 const mockSong: Song = {
     id: 1,
@@ -30,7 +31,7 @@ const mockSong: Song = {
 const mockUser: User = { credits: 200, owned: [] };
 
 beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
     mockGetCurrentUser.mockResolvedValue(mockUser);
     mockGetSongs.mockResolvedValue([mockSong]);
     mockGetSongById.mockResolvedValue(mockSong);

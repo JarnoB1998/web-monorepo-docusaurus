@@ -1,5 +1,5 @@
-import express, { Express } from "express";
-import { Person, Pokemon } from "./types";
+import express, { type Express } from "express";
+import { type Person, type Pokemon } from "./types.ts";
 import { userInfo } from "os";
 
 const app = express();

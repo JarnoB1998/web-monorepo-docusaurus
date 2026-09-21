@@ -1,10 +1,10 @@
-import express, { Express } from "express";
+import express, { type Express } from "express";
 import path from "path";
 
 const app: Express = express();
 
 app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "views"));
+app.set("views", path.join(import.meta.dirname, "views"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

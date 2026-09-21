@@ -1,6 +1,6 @@
 
 
-import { RgbColor, rainbow } from "rainbow-colors-array-ts";
+import { type RgbColor, rainbow } from "rainbow-colors-array-ts";
 import chalk from 'chalk';
 
 

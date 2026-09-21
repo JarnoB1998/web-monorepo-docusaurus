@@ -1,5 +1,6 @@
+import { describe, expect, test } from "vitest";
 import request from "supertest";
-import app from "./app";
+import app from "./app.ts";
 
 describe("POST /sum", () => {
     test("should calculate sum of two numbers", async () => {

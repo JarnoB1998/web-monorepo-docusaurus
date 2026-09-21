@@ -1,6 +1,6 @@
 import express from "express";
 import type { Express, Request, Response } from "express";
-import { RootObject } from "./types";
+import { type RootObject } from "./types.ts";
 
 const app : Express = express();
 

@@ -1,4 +1,4 @@
-import { Tweet, Profile } from "./types";
+import { type Tweet, type Profile } from "./types.ts";
 
 const tweets: Tweet[] = [
     {

@@ -1,6 +1,7 @@
+import { describe, test } from "vitest";
 import request from "supertest";
-import app from "./app";
+import app from "./app.ts";
 
 describe("GET /", () => {
-    // Schrijf hier je testen
+    test.todo("Schrijf hier je tests");
 });

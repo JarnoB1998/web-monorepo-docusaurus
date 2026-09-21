@@ -1,4 +1,4 @@
-import data from './movie.json';
+import data from './movie.json' with { type: "json" };
 
 interface Movie {
     title: string;

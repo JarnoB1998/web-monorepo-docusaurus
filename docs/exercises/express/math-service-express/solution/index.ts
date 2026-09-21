@@ -1,4 +1,4 @@
-import express, { Express, Request, Response } from "express";
+import express, { type Express, type Request, type Response } from "express";
 
 const app: Express = express();
 
@@ -26,7 +26,7 @@ function performOperation(op: string, a: number, b: number) {
     }
 };
 
-app.get('/:operation', (req: Request, res: Response) => {
+app.get('/:operation', (req: Request<{ operation: string }>, res: Response) => {
     const operation: string = req.params.operation;
     if (typeof req.query.a === "string" && typeof req.query.b === "string") {
         const a = parseFloat(req.query.a);
