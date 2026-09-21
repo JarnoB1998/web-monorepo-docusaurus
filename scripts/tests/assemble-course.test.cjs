@@ -131,6 +131,71 @@ test('honors configured include/exclude and disabled number prefixes', async (t)
 test('refuses to overwrite an unrelated output directory', async (t) => {
   const options = await fixture(t);
   await put(options.courseDir, '.course/keep.txt', 'keep me');
+  await put(options.courseDir, '.course/node_modules/cached/index.js', 'cached dependency');
   await assert.rejects(assembleCourse(options), /Refusing to replace/);
   assert.equal(await fs.readFile(path.join(options.courseDir, '.course/keep.txt'), 'utf8'), 'keep me');
+});
+
+test('assembles into an empty directory or a dependency-only cache restored without the marker', async (t) => {
+  for (const state of ['empty', 'cached dependencies', 'dependency symlink']) {
+    await t.test(state, async (t) => {
+      const options = await fixture(t);
+      const outputDir = path.join(options.courseDir, '.course');
+      await fs.mkdir(outputDir);
+      if (state === 'cached dependencies') {
+        await put(outputDir, 'node_modules/cached/index.js', 'cached dependency');
+      } else if (state === 'dependency symlink') {
+        await put(options.sourceDir, 'node_modules/cached/index.js', 'cached dependency');
+        await fs.symlink(path.join(options.sourceDir, 'node_modules'), path.join(outputDir, 'node_modules'), 'dir');
+      }
+      const result = await assembleCourse(options);
+      assert.ok(result.documents.includes('index.md'));
+      const manifest = JSON.parse(await fs.readFile(path.join(outputDir, '.assembled-course.json'), 'utf8'));
+      assert.equal(manifest.generator, 'assemble-course');
+      assert.ok((await fs.lstat(path.join(outputDir, 'node_modules'))).isSymbolicLink());
+      if (state === 'dependency symlink') {
+        assert.equal(await fs.readFile(path.join(options.sourceDir, 'node_modules/cached/index.js'), 'utf8'), 'cached dependency');
+      }
+    });
+  }
+});
+
+test('failed assembly preserves a restored dependency cache', async (t) => {
+  const options = await fixture(t);
+  await put(options.courseDir, '.course/node_modules/cached/index.js', 'cached dependency');
+  await put(options.courseDir, 'sidebars.ts', `export default {all: ['unknown-document']};`);
+  await assert.rejects(assembleCourse(options), /Unknown or excluded/);
+  assert.equal(await fs.readFile(path.join(options.courseDir, '.course/node_modules/cached/index.js'), 'utf8'), 'cached dependency');
+  assert.ok(!(await fs.readdir(options.courseDir)).some((name) => name.startsWith('.course-tmp-')));
+});
+
+test('refuses output symlinks, including dangling symlinks', async (t) => {
+  const options = await fixture(t);
+  const outputDir = path.join(options.courseDir, '.course');
+  const targetDir = path.join(options.root, 'linked-output');
+  await put(targetDir, '.assembled-course.json', '{"generator":"assemble-course"}');
+  await fs.symlink(targetDir, outputDir, 'dir');
+  await assert.rejects(assembleCourse(options), /Refusing to replace/);
+  assert.equal(await fs.readlink(outputDir), targetDir);
+  await fs.rm(targetDir, { recursive: true });
+  await assert.rejects(assembleCourse(options), /Refusing to replace/);
+  assert.equal(await fs.readlink(outputDir), targetDir);
+});
+
+test('refuses invalid markers and files masquerading as output or dependencies', async (t) => {
+  const options = await fixture(t);
+  const outputDir = path.join(options.courseDir, '.course');
+  await put(options.courseDir, '.course', 'keep me');
+  await assert.rejects(assembleCourse(options), /Refusing to replace/);
+  assert.equal(await fs.readFile(outputDir, 'utf8'), 'keep me');
+  await fs.rm(outputDir);
+  await put(outputDir, 'node_modules', 'keep me');
+  await assert.rejects(assembleCourse(options), /Refusing to replace/);
+  assert.equal(await fs.readFile(path.join(outputDir, 'node_modules'), 'utf8'), 'keep me');
+  await fs.rm(path.join(outputDir, 'node_modules'));
+  for (const marker of ['{', 'null', '{"generator":"something-else"}']) {
+    await put(outputDir, '.assembled-course.json', marker);
+    await assert.rejects(assembleCourse(options), /Refusing to replace/);
+    assert.equal(await fs.readFile(path.join(outputDir, '.assembled-course.json'), 'utf8'), marker);
+  }
 });

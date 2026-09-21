@@ -31,6 +31,26 @@ async function exists(file) {
   catch (error) { if (error.code === 'ENOENT') return false; throw error; }
 }
 
+async function canReplaceOutput(outputDir) {
+  let stat;
+  try { stat = await fs.lstat(outputDir); }
+  catch (error) { if (error.code === 'ENOENT') return true; throw error; }
+  // Use lstat so even a dangling output symlink is refused.
+  if (!stat.isDirectory()) return false;
+  try {
+    const marker = JSON.parse(await fs.readFile(path.join(outputDir, MARKER), 'utf8'));
+    return marker?.generator === 'assemble-course';
+  } catch (error) {
+    if (error instanceof SyntaxError) return false;
+    if (error.code !== 'ENOENT') throw error;
+  }
+  // Vercel caches nested node_modules without our marker. Accept only that
+  // dependency cache (or an empty directory), never unmarked course content.
+  const entries = await fs.readdir(outputDir, { withFileTypes: true });
+  return entries.every((entry) => entry.name === 'node_modules' &&
+    (entry.isDirectory() || entry.isSymbolicLink()));
+}
+
 async function filesIn(root, relative = '') {
   const files = [];
   for (const entry of await fs.readdir(path.join(root, relative), { withFileTypes: true })) {
@@ -146,12 +166,8 @@ async function assembleCourse({ courseDir, sourceDir = SOURCE_DIR }) {
   courseDir = await fs.realpath(path.resolve(courseDir));
   sourceDir = await fs.realpath(sourceDir);
   const outputDir = path.join(courseDir, OUTPUT_NAME);
-  if (await exists(outputDir)) {
-    const stat = await fs.lstat(outputDir);
-    const marker = await fs.readFile(path.join(outputDir, MARKER), 'utf8').catch(() => '{}');
-    if (stat.isSymbolicLink() || JSON.parse(marker).generator !== 'assemble-course') {
-      throw new Error(`Refusing to replace an unrecognized directory: ${outputDir}`);
-    }
+  if (!await canReplaceOutput(outputDir)) {
+    throw new Error(`Refusing to replace an unrecognized directory: ${outputDir}`);
   }
   const names = await fs.readdir(courseDir);
   const configs = names.filter((name) => CONFIG_PATTERN.test(name));
