@@ -15,6 +15,9 @@ interface ExpectResult {
   toBe(expected: any): void;
   toHaveLength(n: number): void;
   toBeDefined(): void;
+  rejects: {
+    toThrow(message: string): Promise<void>;
+  };
 }
 declare const fetchMock: {
   /** Registreer een nep-antwoord voor een URL */
@@ -27,7 +30,8 @@ declare function getPost(id: number): Promise<Post>;
 declare function expect(value: any): ExpectResult;
 `;
 
-const WITH_MOCK_CODE = `// fetchMock.get() onderschept de echte fetch-aanroep
+const WITH_MOCK_CODE = `// Activeer de mock en registreer de antwoorden
+fetchMock.mockGlobal();
 fetchMock.get('https://jsonplaceholder.typicode.com/posts', [
   { userId: 1, id: 1, title: "foo", body: "bar" },
   { userId: 1, id: 2, title: "baz", body: "qux" }
@@ -39,11 +43,7 @@ expect(posts[0].title).toBe("foo");
 
 // Mock ook een 404 fout
 fetchMock.get('https://jsonplaceholder.typicode.com/posts/999', 404);
-try {
-  await getPost(999);
-} catch (e) {
-  expect(e.message).toBe("404");
-}`;
+await expect(getPost(999)).rejects.toThrow("404");`;
 
 const WITHOUT_MOCK_CODE = `// Geen mock — de fetch gaat naar de echte API!
 const posts = await getPosts();
@@ -76,6 +76,7 @@ function stripTypes(src: string): string {
 async function runSimulation(code: string): Promise<SimEvent[]> {
   const events: SimEvent[] = [];
   const mockRegistry = new Map<string, any>();
+  let mockingEnabled = false;
 
   const mockFetchMock = {
     get: (url: string, response: any) => {
@@ -83,12 +84,18 @@ async function runSimulation(code: string): Promise<SimEvent[]> {
       const short = url.replace('https://jsonplaceholder.typicode.com', '');
       events.push({ type: 'system', text: `Mock geregistreerd: GET ${short}`, nodeId: 'fetchmock' });
     },
-    mockGlobal: () => {},
-    mockRestore: () => { mockRegistry.clear(); },
+    mockGlobal: () => { mockingEnabled = true; },
+    mockRestore: () => {
+      mockRegistry.clear();
+      mockingEnabled = false;
+    },
   };
 
   const simulateFetch = async (url: string) => {
-    if (mockRegistry.has(url)) {
+    if (mockingEnabled) {
+      if (!mockRegistry.has(url)) {
+        throw new Error(`Geen mock geregistreerd voor GET ${url}`);
+      }
       const mockResponse = mockRegistry.get(url);
       const isStatus = typeof mockResponse === 'number';
       const data = isStatus ? null : mockResponse;
@@ -146,6 +153,30 @@ async function runSimulation(code: string): Promise<SimEvent[]> {
       const msg = `expect(value).toBeDefined()`;
       events.push({ type: 'assertion', passed, message: msg, nodeId: 'test' });
       if (!passed) throw new AssertionError(`Verwacht gedefinieerd, ontvangen: ${actual}`);
+    },
+    rejects: {
+      toThrow: async (message: string) => {
+        let rejected = false;
+        let rejection: unknown;
+        try {
+          await actual;
+        } catch (error) {
+          rejected = true;
+          rejection = error;
+        }
+        const passed = rejected && rejection instanceof Error && rejection.message.includes(message);
+        events.push({
+          type: 'assertion',
+          passed,
+          message: `expect(promise).rejects.toThrow(${JSON.stringify(message)})`,
+          nodeId: 'test',
+        });
+        if (!passed) {
+          throw new AssertionError(rejected
+            ? `Verwacht fout met boodschap ${JSON.stringify(message)}, ontvangen: ${String(rejection)}`
+            : 'Verwacht een afgewezen Promise, maar de Promise is geslaagd');
+        }
+      },
     },
   });
 

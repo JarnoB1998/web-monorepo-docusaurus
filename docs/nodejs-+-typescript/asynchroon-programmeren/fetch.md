@@ -6,7 +6,7 @@ De syntax is grotendeels hetzelfde als in JavaScript. Het enige verschil is dat 
 
 ## Interface
 
-We gaan in dit voorbeeld gebruik maken van de [JSONPlaceholder](https://jsonplaceholder.typicode.com/) API. Deze API bevat een aantal endpoints die je kan gebruiken om data op te halen. We gaan in dit voorbeeld gebruik maken van de `/posts` endpoint. Deze endpoint geeft een lijst van gebruikers terug. 
+We gaan in dit voorbeeld gebruik maken van de [JSONPlaceholder](https://jsonplaceholder.typicode.com/) API. Deze API bevat een aantal endpoints die je kan gebruiken om data op te halen. We gaan in dit voorbeeld gebruik maken van de `/posts` endpoint. Deze endpoint geeft een lijst van posts terug.
 
 ```json
 [
@@ -86,7 +86,7 @@ Als je toch een error wil afhandelen die veroorzaakt wordt door een fout in de c
 ```typescript
 fetch('https://jsonplaceholder.typicode.com/posts/123')
     .then(r => {
-        if (!r.ok) throw new Error(r.status)
+        if (!r.ok) throw new Error(r.status.toString());
         return r.json()
     })
     .then(r => console.log(r))
@@ -101,9 +101,9 @@ Deze code is ook weer sterk te vereenvoudigen met async en await:
 (async function () {
     try {
         const response = await fetch('https://jsonplaceholder.typicode.com/posts/123');
-        if (!response.ok) throw new Error(response.status);
-        const posts : Post[] = await response.json();
-        console.log(posts[0].title);
+        if (!response.ok) throw new Error(response.status.toString());
+        const post: Post = await response.json();
+        console.log(post.title);
     } catch (error: any) {
         console.log(error);
     }
@@ -120,8 +120,8 @@ Je kan ook de `status` property gebruiken om de status code op te vragen. Deze p
         if (response.status === 404) throw new Error('Not found');
         if (response.status === 500) throw new Error('Internal server error');
 
-        const posts : Post[] = await response.json();
-        console.log(posts[0].title);
+        const post: Post = await response.json();
+        console.log(post.title);
     } catch (error: any) {
         console.log(error);
     }
@@ -130,7 +130,15 @@ Je kan ook de `status` property gebruiken om de status code op te vragen. Deze p
 
 ## Testen
 
-Om fetch-aanroepen te testen gebruiken we **Jest**. Omdat fetch asynchroon werkt én afhankelijk is van een externe server, combineren we twee technieken: async/await testen en mocking.
+Om fetch-aanroepen te testen gebruiken we **Vitest**, zoals in het hoofdstuk [Testing](../testing.md). Omdat fetch asynchroon werkt én afhankelijk is van een externe server, combineren we twee technieken: async/await testen en mocking met **@fetch-mock/vitest**.
+
+Installeer de testpackages in je Node.js-project:
+
+```bash
+npm i --save-dev vitest @fetch-mock/vitest
+```
+
+Een project dat je met `create-clean-node` maakt, bevat al Vitest en een `test`-script. Behoud dat script: het controleert eerst de TypeScript-types en voert daarna de tests één keer uit. In een ander project kan je het `test`-script uit het hoofdstuk Testing gebruiken.
 
 ### Exporteerbare functies
 
@@ -159,10 +167,11 @@ export async function getPost(id: number): Promise<Post> {
 
 ### Asynchrone tests
 
-Omdat fetch asynchroon werkt, gebruik je `async` en `await` in je tests:
+Omdat fetch asynchroon werkt, gebruik je `async` en `await` in je tests. Dit eerste voorbeeld in `post-service.integration.test.ts` spreekt de echte API aan en heeft dus een internetverbinding nodig:
 
 ```typescript
-import { getPost } from "./post-service";
+import { describe, expect, it } from 'vitest';
+import { getPost } from './post-service.ts';
 
 describe("getPost", () => {
     it("should return a post by id", async () => {
@@ -171,33 +180,41 @@ describe("getPost", () => {
     });
 
     it("should throw an error when the post is not found", async () => {
-        try {
-            await getPost(99999);
-        } catch (error: any) {
-            expect(error.message).toBeDefined();
-        }
+        await expect(getPost(99999)).rejects.toThrow("404");
     });
 });
 ```
 
+Met `await expect(...).rejects.toThrow("404")` controleer je dat de Promise wordt afgewezen met de verwachte fout. De test faalt ook als de functie onverwacht slaagt. Bij alleen een `try/catch` met controles in de `catch` zou de test dan ten onrechte slagen. Gebruik ook hier `await`, zodat Vitest wacht tot de controle klaar is.
+
+Je kan dit voorbeeld afzonderlijk uitvoeren met:
+
+```bash
+npm test -- post-service.integration.test.ts
+```
+
 ### Fetch mocken
 
-Het is niet wenselijk om in tests echte netwerkaanroepen te doen. Dit kan leiden tot:
-- **Flakey tests**: de test faalt bij een netwerkstor­ing, ook al is je code correct.
+Voor unit tests willen we niet afhankelijk zijn van echte netwerkaanroepen. Dit kan leiden tot:
+
+- **Flaky tests**: de test faalt bij een netwerkstoring, ook al is je code correct.
 - **API-limieten**: externe services kunnen rate limits opleggen.
 - **Trage tests**: netwerkaanroepen vertragen de testsuite.
 
-Daarom gebruiken we **@fetch-mock/jest**:
-
-```bash
-npm i --save-dev @fetch-mock/jest
-```
-
-Met @fetch-mock/jest vervang je de echte fetch door een nep-versie die vooraf vastgelegde data teruggeeft:
+Met [@fetch-mock/vitest](https://www.wheresrhys.co.uk/fetch-mock/docs/wrappers/vitest/) vervang je de echte `fetch` door een nep-versie die vooraf vastgelegde data teruggeeft. Zet het volgende voorbeeld in `post-service.test.ts`, naast `post-service.ts`:
 
 ```typescript
-import fetchMock from '@fetch-mock/jest';
-import { getPosts, getPost } from './post-service';
+import { afterEach, beforeEach, describe, expect, it } from 'vitest';
+import fetchMock from '@fetch-mock/vitest';
+import { getPosts, getPost } from './post-service.ts';
+
+beforeEach(() => {
+    fetchMock.mockGlobal();
+});
+
+afterEach(() => {
+    fetchMock.mockRestore();
+});
 
 describe("getPosts", () => {
     it("should return a list of posts", async () => {
@@ -210,38 +227,63 @@ describe("getPosts", () => {
         const posts = await getPosts();
         expect(posts).toHaveLength(2);
         expect(posts[0].title).toBe("foo");
+        expect(posts).toEqual(mockPosts);
+        expect(fetchMock).toHaveFetchedTimes(1, 'https://jsonplaceholder.typicode.com/posts');
     });
 });
 
 describe("getPost", () => {
+    it("should return a post by id", async () => {
+        const mockPost = { userId: 1, id: 1, title: "foo", body: "bar" };
+        fetchMock.get('https://jsonplaceholder.typicode.com/posts/1', mockPost);
+
+        const post = await getPost(1);
+        expect(post).toEqual(mockPost);
+        expect(fetchMock).toHaveFetchedTimes(1, 'https://jsonplaceholder.typicode.com/posts/1');
+    });
+
     it("should throw an error when the server returns 404", async () => {
         fetchMock.get('https://jsonplaceholder.typicode.com/posts/999', 404);
 
-        try {
-            await getPost(999);
-        } catch (error: any) {
-            expect(error.message).toBe("404");
-        }
+        await expect(getPost(999)).rejects.toThrow("404");
     });
-});
 
-beforeEach(() => {
-    fetchMock.mockGlobal();
-});
+    it("should throw an error when the server returns 500", async () => {
+        fetchMock.get('https://jsonplaceholder.typicode.com/posts/1', 500);
 
-afterEach(() => {
-    fetchMock.mockRestore();
+        await expect(getPost(1)).rejects.toThrow("500");
+    });
+
+    it("should reject when the network request fails", async () => {
+        fetchMock.get('https://jsonplaceholder.typicode.com/posts/1', {
+            throws: new TypeError("Failed to fetch"),
+        });
+
+        await expect(getPost(1)).rejects.toThrow("Failed to fetch");
+    });
 });
 ```
 
-After each zorgt ervoor dat alle mocks worden gereset na elke test, zodat je tests onafhankelijk blijven.
+`beforeEach` vervangt de globale `fetch` vóór elke test. `fetchMock.get()` registreert alleen welk antwoord een GET-aanroep moet krijgen; je hebt dus ook `mockGlobal()` nodig. Een array of object wordt als JSON teruggegeven, een getal stelt een HTTP-statuscode voor en `throws` simuleert een netwerkfout. Een HTTP-fout wordt pas een afgewezen Promise doordat onze service `response.ok` controleert.
+
+`afterEach` roept `mockRestore()` aan om de routes en aanroepgeschiedenis te wissen en de oorspronkelijke `fetch` te herstellen. Zo blijven de tests onafhankelijk, ook wanneer ze dezelfde URL gebruiken. De extra matcher `toHaveFetchedTimes` komt uit `@fetch-mock/vitest` en controleert hoe vaak de opgegeven URL werd opgevraagd.
+
+Voer alleen de tests met mocks uit met:
+
+```bash
+npm test -- post-service.test.ts
+```
+
+Deze tests hebben geen internetverbinding nodig. Met `npm test` voer je alle testbestanden uit, dus ook het voorbeeld met de echte API als je dat bewaard hebt. Zonder dat integratietestbestand blijven je tests volledig lokaal.
 
 ## Interactieve demo
 
 Probeer hieronder het verschil tussen een test **met** en **zonder** fetch mock. Gebruik de knoppen om te wisselen, of pas de code zelf aan.
 
-- **Met mock** — `fetchMock.get()` onderschept de fetch. De request gaat nooit het internet op: je ontvangt altijd de data die jij zelf instelt. De test slaagt.
+- **Met mock** — `fetchMock.mockGlobal()` activeert de mock en `fetchMock.get()` registreert de antwoorden. De request gaat nooit het internet op: je ontvangt altijd de data die jij zelf instelt. De test slaagt.
 - **Zonder mock** — de echte fetch gaat naar `jsonplaceholder.typicode.com`. De echte API geeft 100 posts terug met andere titels, waardoor de assertions falen.
+
+De demo simuleert de testfuncties en fetch-mocks in de browser. In je Node.js-project gebruik je de volledige Vitest-tests met imports en hooks hierboven.
 
 import InteractiveFetchMock from '@site/src/components/InteractiveFetchMock';
 

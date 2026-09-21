@@ -2,7 +2,7 @@
 
 Testen van applicaties gebeurt op verschillende niveaus. Hoewel niet iedereen dezelfde niveaus van elkaar onderscheidt, maakt men in het algemeen een onderscheid tussen **unit testing** en **end-to-end testing**.
 
-Unit testing omvat het testen van individuele onderdelen van de code, zoals functies of methoden. Meestal wordt hier een white-box principe gehanteerd: de tester kent de inhoud van de unit en mag code schrijven die gebruik maakt van deze kennis. Typische frameworks voor unit testing van Express applicaties zijn Mocha en Jest.
+Unit testing omvat het testen van individuele onderdelen van de code, zoals functies of methoden. Meestal wordt hier een white-box principe gehanteerd: de tester kent de inhoud van de unit en mag code schrijven die gebruik maakt van deze kennis. Typische frameworks voor unit testing van Node.js- en Express-applicaties zijn Mocha en Vitest.
 
 End-to-end testing omvat het testen "zoals een gebruiker". Deze vorm volgt het black-box principe. In essentie omvat dit het automatiseren van volledige browserinteracties. Typische frameworks zijn Cypress of Selenium.
 
@@ -17,33 +17,37 @@ De belangrijkste reden om te testen is natuurlijk om te controleren of je code w
 
 Testen is dus niet alleen om te zien of je code *nu* werkt, maar vooral om er zeker van te zijn dat je code *altijd* blijft werken, hoe groot of complex het project ook wordt.
 
-## Jest
+## Vitest
 
-Jest is een testframework dat origineel ontwikkeld werd door Facebook. Het is een van de meest populaire testframeworks voor JavaScript. Jest is een all-in-one oplossing die zowel de testrunner als de assertion library bevat. Jest is zeer eenvoudig in gebruik en heeft een goede documentatie.
+[Vitest](https://vitest.dev/guide/) is een testframework voor JavaScript en TypeScript. Het is een test runner die compatibel is met de Jest-API en gebruik maakt van **Vite** om code te verwerken en modules te laden. Daardoor kan je tests schrijven met de vertrouwde functies `test`, `describe` en `expect` en dezelfde veelgebruikte testmethodes als in Jest. Veel bestaande Jest-tests kunnen met beperkte aanpassingen overgenomen worden; er zijn wel [verschillen bij het overstappen](https://vitest.dev/guide/migration/jest).
+
+Vitest bevat zowel de test runner, die de tests uitvoert, als een assertion library, waarmee je controleert of resultaten aan je verwachtingen voldoen. Het ondersteunt TypeScript rechtstreeks en kan ook gebruikt worden in een Node.js-project zonder bestaande Vite-configuratie.
 
 ### Installatie
 
-Om Jest te installeren, voer je volgend commando uit:
+Om Vitest in je project te installeren, voer je volgend commando uit:
 
 ```bash
-npm i --save-dev jest ts-jest @types/jest
+npm i --save-dev vitest
 ```
 
 ### Configuratie
 
-Om Jest te kunnen gebruiken (met TypeScript), voer je dit commando uit:
+Voor de voorbeelden in dit hoofdstuk heb je geen apart configuratiebestand nodig. Vitest kan `.ts`-bestanden rechtstreeks uitvoeren en levert zelf de types voor zijn testfuncties. Het uitvoeren van tests controleert niet automatisch alle TypeScript-types; daarvoor kan je apart `npx tsc --noEmit` gebruiken.
 
-```bash
-npx ts-jest config:init
-```
-
-Om te zorgen dat je al je Jest-tests kan laten lopen met npm test, voeg je dit toe aan package.json:
+Voeg het volgende script toe aan het `scripts`-object in je `package.json` en behoud eventuele andere scripts:
 
 ```json
-"scripts": {
-  "test": "jest"
+{
+  "scripts": {
+    "test": "vitest run"
+  }
 }
 ```
+
+Met `npm test` voer je alle tests één keer uit.
+
+Vitest herkent testbestanden zoals `area.test.ts` en `area.spec.ts` automatisch. In elk testbestand importeer je de gebruikte testfuncties, zoals `test`, `expect` en eventueel `describe`, uit `vitest`.
 
 ## Testen van modules
 
@@ -63,6 +67,7 @@ export function areaRectangle(l: number, w: number): number {
 Stel dat je de functie `areaRectangle` wil testen. Je kan dan een nieuw bestand aanmaken met de naam `area.test.ts`. In dit bestand kan je de functie importeren en vervolgens testen.
 
 ```typescript
+import { expect, test } from 'vitest';
 import { areaRectangle } from './area';
 
 test('areaRectangle should return the correct area of a rectangle', () => {
@@ -74,12 +79,13 @@ test('areaRectangle should return the correct area of a rectangle', () => {
 Nu kan je deze test laten lopen door het volgende commando uit te voeren:
 
 ```bash
-npm run test
+npm test
 ```
 
 De andere functies kan je op dezelfde manier testen.
 
 ```typescript
+import { expect, test } from 'vitest';
 import { areaCircle, areaSquare } from './area';
 
 test('areaCircle should return the correct area of a circle', () => {
@@ -100,6 +106,7 @@ Je merkt op dat we hier gebruik maken van `toBeCloseTo` in plaats van `toBe` omd
 Je kan ook gebruik maken van `describe` blocks om je tests te organiseren. Dit is vooral handig als je veel tests hebt voor dezelfde module of functie. Als we bijvoorbeeld willen nagaan hoe de `areaRectangle` functie zich gedraagt bij negatieve inputs, kunnen we een `describe` block gebruiken om deze tests te groeperen.
 
 ```typescript
+import { describe, expect, test } from 'vitest';
 import { areaRectangle } from './area';
 
 describe('areaRectangle', () => {
@@ -113,7 +120,7 @@ describe('areaRectangle', () => {
         expect(areaRectangle(5, 0)).toBe(0);
     });
 
-    test('should return a positive area even if one of the sides is negative', () => {
+    test('should return a negative area if exactly one of the sides is negative', () => {
         expect(areaRectangle(-2, 3)).toBe(-6);
         expect(areaRectangle(5, -10)).toBe(-50);
     });
@@ -122,27 +129,28 @@ describe('areaRectangle', () => {
 
 #### Testen van asynchrone functies
 
-Ook in tests kan je gebruik maken van async en await. Je kan de test functie async maken en dan de await keyword gebruiken om te wachten tot de Promise is afgerond.
+Ook in tests kan je gebruik maken van async en await. Je kan de test functie async maken en dan de await keyword gebruiken om te wachten tot de Promise is afgerond. In de volgende voorbeelden gaan we ervan uit dat de asynchrone functies `multiply` en `divide` uit je eigen module geïmporteerd zijn.
 
 ```typescript
+import { expect, test } from 'vitest';
+
 test("multiply should return the product of two numbers", async () => {
     const result = await multiply(2, 3);
     expect(result).toBe(6);
 });
 ```
 
-Je kan ook gebruik maken van try catch blokken in je tests om te testen of er een error wordt gegooid.
+Om te testen of een Promise wordt afgewezen met een fout, gebruik je `rejects.toThrow`. Vergeet de `await` niet: de test moet wachten totdat de controle klaar is.
 
 ```typescript
+import { expect, test } from 'vitest';
+
 test("divide should throw an error when dividing by zero", async () => {
-    try {
-        await divide(10, 0);
-    } catch (error) {
-        expect(error).toBeInstanceOf(Error);
-        expect(error.message).toBe("Cannot divide by zero");
-    }
+    await expect(divide(10, 0)).rejects.toThrow("Cannot divide by zero");
 });
 ```
+
+Als `divide` geen fout oplevert, faalt deze test ook. Bij een test met alleen controles in een `catch`-blok zouden die controles in dat geval nooit uitgevoerd worden.
 
 ##### Voorbeeld
 
@@ -198,6 +206,7 @@ export function areaRectangle(l: number, w: number): number {
 ```
 
 ```typescript
+import { describe, expect, test } from 'vitest';
 import { areaRectangle } from './area';
 
 describe('areaRectangle', () => {
@@ -222,7 +231,7 @@ Je vraagt je misschien af waarom we hier gebruik maken van een callback functie 
 
 ### Andere testmethodes
 
-Naast `toBe` en `toBeCloseTo` zijn er nog heel veel andere testmethodes die je kan gebruiken in Jest. Hier is een overzicht van de meest gebruikte testmethodes:
+Naast `toBe` en `toBeCloseTo` zijn er nog heel veel andere testmethodes die je kan gebruiken in Vitest. Hier is een overzicht van de meest gebruikte testmethodes:
 
 | **Testmethode** | **Beschrijving**                                                                                     |
 | --------------- | ---------------------------------------------------------------------------------------------------- |
@@ -238,5 +247,4 @@ Naast `toBe` en `toBeCloseTo` zijn er nog heel veel andere testmethodes die je k
 | `toBeCloseTo`   | Controleert of twee getallen dicht bij elkaar liggen, rekening houdend met afrondingsfouten. |
 | `toBeNaN`        | Controleert of een waarde `NaN` is. |
 
-Er zijn nog veel meer testmethodes beschikbaar in Jest, maar dit zijn de meest gebruikte. Je kan altijd de [Jest documentatie](https://jestjs.io/docs/expect) raadplegen voor een volledig overzicht van alle testmethodes.
-
+Er zijn nog veel meer testmethodes beschikbaar in Vitest, maar dit zijn de meest gebruikte. Je kan altijd de [Vitest documentatie](https://vitest.dev/api/expect.html) raadplegen voor een volledig overzicht van alle testmethodes.
