@@ -14,11 +14,11 @@ Een private labo-repository op GitHub, die je in VS Code opent in een devcontain
 
 Een Dev Environment (ontwikkelomgeving) is simpelweg een systeem waar alle software, tools en hardware op geïnstalleerd zijn, zodat jij kunt programmeren aan een specifiek project. Met software en tools wordt echt alles bedoeld dat je gebruikt tijdens het programmeren:
 
-* **Code editors**, bv. VS Code of Visual Studio
-* **Plugins**, bv. een Markdown extension in VS Code
-* **Compilers**, bv. de .NET compiler voor C#
-* **Sandbox omgevingen**, bv. Node.js
-* ...
+- **Code editors**, bv. VS Code of Visual Studio
+- **Plugins**, bv. een Markdown extension in VS Code
+- **Compilers**, bv. de .NET compiler voor C#
+- **Sandbox omgevingen**, bv. Node.js
+- ...
 
 Meestal heb je op één toestel meerdere Dev Environments geïnstalleerd. Het is nu eenmaal niet praktisch om rond te lopen met 5 laptops...
 
@@ -116,9 +116,9 @@ Windows version: 10.0.26100.3037
 
 Afhankelijk van het resultaat voer je één van deze commando's uit:
 
-| Situatie | Commando |
-| --- | --- |
-| WSL is **al geïnstalleerd** | `wsl --update` |
+| Situatie                      | Commando                          |
+| ----------------------------- | --------------------------------- |
+| WSL is **al geïnstalleerd**   | `wsl --update`                    |
 | WSL is **niet geïnstalleerd** | `wsl --install --no-distribution` |
 
 Meer informatie vind je op [learn.microsoft.com](https://learn.microsoft.com/en-us/windows/wsl/install).
@@ -203,12 +203,11 @@ Zoek de labo-repository die je eerder aanmaakte op in GitHub en volg deze stappe
 5. Plak de HTTPS Git URL die je kopieerde en druk Enter.
 6. Beantwoord de vragen die VS Code stelt:
 
-   | VS Code vraagt naar... | Jij kiest |
-   | --- | --- |
-   | Branch | `main` |
-   | Container template | `Node JS & Typescript` |
-   | Versie van Node.js | `24-trixie` |
-   | Extra features | `ts-node` |
+   | VS Code vraagt naar... | Jij kiest              |
+   | ---------------------- | ---------------------- |
+   | Branch                 | `main`                 |
+   | Container template     | `Node JS & Typescript` |
+   | Versie van Node.js     | `24-trixie`            |
 
 7. De devcontainer wordt opgestart en je kan beginnen. Kijk zeker na dat je een bestand kan **pushen** naar de repository.
 
@@ -227,9 +226,7 @@ Open het bestand `.devcontainer/devcontainer.json`. De gemarkeerde regels tonen 
   "name": "Node.js & TypeScript",
   // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
   "image": "mcr.microsoft.com/devcontainers/typescript-node:5-24-trixie",
-  "features": {
-    "ghcr.io/devcontainers-extra/features/ts-node:1": {}
-  }
+  "features": {}
 
   // Features to add to the dev container. More info: https://containers.dev/features.
   // "features": {},
@@ -249,21 +246,22 @@ Open het bestand `.devcontainer/devcontainer.json`. De gemarkeerde regels tonen 
 ```
 
 :::info Checklist: ben je klaar?
+
 - ✅ De devcontainer start op in VS Code.
-- ✅ `.devcontainer/devcontainer.json` bevat de image `typescript-node:5-24-trixie` en de feature `ts-node`.
+- ✅ `.devcontainer/devcontainer.json` bevat de image `typescript-node:5-24-trixie`.
 - ✅ Je kan een bestand committen en pushen naar je labo-repository.
-:::
+  :::
 
 ## Troubleshooting
 
 Zoek je probleem op in de tabel en klik door naar de oplossing.
 
-| Probleem | Oplossing |
-| --- | --- |
-| Clonen van je private repo lukt niet, of je wordt met het verkeerde account aangemeld | [Meerdere GitHub-accounts](#meerdere-github-accounts) |
-| Foutmelding dat je WSL-versie niet up-to-date is | [WSL-versie is niet up-to-date](#wsl-versie-is-niet-up-to-date) |
-| Devcontainer start niet en je hebt een Docker-account | [Docker e-mailadres niet geverifieerd](#docker-e-mailadres-niet-geverifieerd) |
-| Foutmelding dat virtualisatie niet ingeschakeld is | [Virtualisatie is niet ingeschakeld in BIOS](#virtualisatie-is-niet-ingeschakeld-in-bios) |
+| Probleem                                                                              | Oplossing                                                                                 |
+| ------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| Clonen van je private repo lukt niet, of je wordt met het verkeerde account aangemeld | [Meerdere GitHub-accounts](#meerdere-github-accounts)                                     |
+| Foutmelding dat je WSL-versie niet up-to-date is                                      | [WSL-versie is niet up-to-date](#wsl-versie-is-niet-up-to-date)                           |
+| Devcontainer start niet en je hebt een Docker-account                                 | [Docker e-mailadres niet geverifieerd](#docker-e-mailadres-niet-geverifieerd)             |
+| Foutmelding dat virtualisatie niet ingeschakeld is                                    | [Virtualisatie is niet ingeschakeld in BIOS](#virtualisatie-is-niet-ingeschakeld-in-bios) |
 
 ### Meerdere GitHub-accounts {#meerdere-github-accounts}
 

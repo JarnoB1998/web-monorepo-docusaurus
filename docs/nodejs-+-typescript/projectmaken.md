@@ -47,15 +47,45 @@ Nu we alle configuratie hebben aangemaakt kunnen we beginnen met het schrijven v
 Het bestand `hello.ts` moet het volgende bevatten:
 
 ```typescript
-console.log('Hello, world!');
+console.log("Hello, world!");
 ```
+
+## Typechecking met TypeScript
+
+Tijdens het programmeren controleert **VS Code** onze TypeScript-code voortdurend op mogelijke typefouten. Hierdoor krijgen we vaak al tijdens het schrijven van de code feedback wanneer er bijvoorbeeld een verkeerd type wordt gebruikt.
+
+We kunnen onze code echter ook **manueel laten controleren** door de TypeScript-compiler (`tsc`). Hiervoor gebruiken we:
+
+```
+npx tsc --noEmit
+```
+
+De optie `--noEmit` zorgt ervoor dat TypeScript **geen JavaScript-bestanden genereert**. De compiler controleert alleen of onze TypeScript-code correct is en of er geen typefouten aanwezig zijn.
+
+Dit is bijvoorbeeld handig voordat we onze code committen of opleveren. Zo kunnen we controleren of er nergens typefouten in het project zitten.
+
+We kunnen dit commando ook opnemen in een **npm-script**, in het package.json bestand:
+
+```
+"scripts": {
+  "typecheck": "tsc --noEmit"
+}
+```
+
+Daarna kunnen we de typechecking uitvoeren met:
+
+```
+npm run typecheck
+```
+
+**Belangrijk:** VS Code geeft ons dus tijdens het programmeren onmiddellijk feedback, terwijl `tsc --noEmit` een volledige typecheck van ons project uitvoert zonder JavaScript-bestanden te genereren.
 
 ## Uitvoeren
 
-Nu we ons programma hebben geschreven kunnen we dit uitvoeren. Dit kan je doen aan de hand van het `ts-node` commando.
+Nu we ons programma hebben geschreven kunnen we dit uitvoeren. Dit kan je doen aan de hand van het `node` commando.
 
 ```bash
-ts-node hello.ts
+node hello.ts
 ```
 
 Dit commando zal je programma uitvoeren en je zal `Hello, world!` zien verschijnen in je terminal.
@@ -67,7 +97,7 @@ Dit commando zal je programma uitvoeren en je zal `Hello, world!` zien verschijn
 | `npm init`                           | Maakt een nieuw project aan.                                                          |
 | `tsc --init`                         | Maakt een nieuw tsconfig bestand aan. Het initialiseert een nieuw TypeScript project. |
 | `npm install --save-dev @types/node` | Installeert alle types die nodig zijn om met TypeScript en Node.js te werken.         |
-| `ts-node &lt;naam file>.ts`             | Voert het programma uit dat je geschreven hebt in `&lt;naam file>.ts`.                   |
+| `node <naam file>.ts`                | Voert het programma uit dat je geschreven hebt in `<naam file>.ts`.                   |
 
 Deze commando's zal je voor elk nieuw project moeten uitvoeren. Het is dus handig om deze te onthouden.
 
