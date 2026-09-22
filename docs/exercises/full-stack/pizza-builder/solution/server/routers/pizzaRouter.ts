@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { Ingredient, Pizza } from "../types";
+import type { Ingredient, Pizza } from "../types";
 import { getIngredients, getPizzas, getPizzaById, createPizza, deletePizza } from "../database";
 
 export function pizzaRouter(): Router {

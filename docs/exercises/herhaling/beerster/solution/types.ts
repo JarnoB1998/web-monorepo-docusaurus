@@ -1,5 +1,5 @@
-import { JwtPayload } from "jsonwebtoken";
-import { ObjectId } from "mongodb";
+import type { JwtPayload } from "jsonwebtoken";
+import type { ObjectId } from "mongodb";
 
 export interface Beer {
     id: number;

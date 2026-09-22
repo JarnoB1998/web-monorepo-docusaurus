@@ -88,7 +88,7 @@ Je kan ook een aparte middleware functie schrijven en deze dan toevoegen aan de 
 We zullen een apart bestand maken voor de middleware functie. We zullen een bestand maken met de naam `verifyAuthToken.ts` in de `middleware` directory. Dit bestand zal er als volgt uitzien:
 
 ```typescript
-import { Request, Response, NextFunction } from "express";
+import type { Request, Response, NextFunction } from "express";
 
 export const verifyAuthToken = (req: Request, res: Response, next: NextFunction) => {
     const token = req.headers.authorization;
@@ -113,7 +113,7 @@ app.use(verifyAuthToken);
 Een voorbeeld van een middleware functie die utility functies toevoegd aan de `res` object is de volgende:
 
 ```typescript
-import { Request, Response, NextFunction } from "express";
+import type { Request, Response, NextFunction } from "express";
 
 export function ejsUtility(req: Request, res: Response, next: NextFunction) {
     res.locals.formatDate = (date: Date) => {
@@ -162,7 +162,7 @@ Je kan ook een middleware functie schrijven die errors afhandelt. Deze middlewar
 We kunnen een nieuw bestand maken met de naam `handleError.ts` in de `middleware` directory. Dit bestand zal er als volgt uitzien:
 
 ```typescript
-import { Request, Response, NextFunction } from "express";
+import type { Request, Response, NextFunction } from "express";
 
 export const handleError = (err: any, req: Request, res: Response, next: NextFunction) => {
     res.status(500).render("error",
@@ -220,7 +220,7 @@ Je kan ook middleware functies maken die configureerbaar zijn. Je kan dan een fu
 We zullen een nieuwe middleware functie maken die een parameter heeft. Deze parameter zal de status code zijn. We zullen een bestand maken met de naam `errorHandler.ts` in de `middleware` directory. Dit bestand zal er als volgt uitzien:
 
 ```typescript
-import { Request, Response, NextFunction } from "express";
+import type { Request, Response, NextFunction } from "express";
 
 interface ErrorHandlerOptions {
     statusCode: number;
@@ -254,7 +254,7 @@ Een voorbeeld van een configureerbare middleware functie is een request limiter.
 We zullen een nieuwe middleware functie maken die een parameter heeft. Deze parameter zal het aantal requests zijn dat een gebruiker mag doen. We zullen een bestand maken met de naam `requestLimiter.ts` in de `middleware` directory. Dit bestand zal er als volgt uitzien:
 
 ```typescript
-import { Request, Response, NextFunction } from "express";
+import type { Request, Response, NextFunction } from "express";
 
 let requestLog : Record<string, number> = {};
 

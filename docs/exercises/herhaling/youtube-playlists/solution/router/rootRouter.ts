@@ -1,6 +1,6 @@
 import express from "express";
 import { getVideos, getUser, getVideoById, saveUser, createVideo } from "../database";
-import { User, Video } from "../types";
+import type { User, Video } from "../types";
 
 export default function rootRouter() {
     const router = express.Router();

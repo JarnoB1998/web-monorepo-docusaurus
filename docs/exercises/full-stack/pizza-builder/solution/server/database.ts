@@ -1,12 +1,12 @@
 import mysql, {
-    Connection,
-    ConnectionOptions,
-    RowDataPacket,
-    FieldPacket,
-    ResultSetHeader
+    type Connection,
+    type ConnectionOptions,
+    type RowDataPacket,
+    type FieldPacket,
+    type ResultSetHeader
 } from "mysql2/promise";
 import dotenv from "dotenv";
-import { Ingredient, Pizza, PizzaRecord, PizzaIngredient } from "./types";
+import type { Ingredient, Pizza, PizzaRecord, PizzaIngredient } from "./types";
 import initialIngredients from "./ingredients.json";
 
 dotenv.config();

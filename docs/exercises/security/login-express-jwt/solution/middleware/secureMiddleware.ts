@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from "express";
+import type { NextFunction, Request, Response } from "express";
 import * as jwt from "jsonwebtoken";
 
 export function secureMiddleware(req: Request, res: Response, next: NextFunction) {

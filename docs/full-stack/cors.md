@@ -29,7 +29,7 @@ npm install --save-dev @types/cors
 Voeg bovenaan `index.ts` deze import toe:
 
 ```typescript title="index.ts (import)"
-import cors, { CorsOptions } from "cors";
+import cors, { type CorsOptions } from "cors";
 ```
 
 Plaats de middleware na het aanmaken van `app` en **vóór de router**. Dit deel van `index.ts` wordt dan:

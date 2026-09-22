@@ -1,4 +1,4 @@
-import { NewsArticle } from "./types";
+import type { NewsArticle } from "./types";
 
 export const topics : string[] = [
     "politics",

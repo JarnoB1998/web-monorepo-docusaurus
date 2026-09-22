@@ -21,7 +21,7 @@ De router verwerkt de request en stuurt de response. De databasefuncties voeren 
 Voeg `ResultSetHeader` toe aan de bestaande import bovenaan `database.ts`:
 
 ```typescript title="database.ts (import)"
-import mysql, { Connection, ConnectionOptions, FieldPacket, RowDataPacket, ResultSetHeader } from "mysql2/promise";
+import mysql, { type Connection, type ConnectionOptions, type FieldPacket, type RowDataPacket, type ResultSetHeader } from "mysql2/promise";
 ```
 
 De bestaande functies blijven staan. Voeg de volgende functies onderaan `database.ts` toe.
@@ -87,7 +87,7 @@ Pas de imports bovenaan `routers/planetsRouter.ts` aan:
 
 ```typescript title="routers/planetsRouter.ts (imports)"
 import { Router } from "express";
-import { Planet } from "../types";
+import type { Planet } from "../types";
 import { getPlanets, getPlanetById, createPlanet, updatePlanet, deletePlanet } from "../database";
 ```
 

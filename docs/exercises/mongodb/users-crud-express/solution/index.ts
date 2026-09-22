@@ -1,7 +1,7 @@
-import express, { Express,Request, Response,NextFunction } from "express";
+import express, { type Express,type Request, type Response,type NextFunction } from "express";
 import dotenv from "dotenv";
 import path from "path";
-import { User } from "./types";
+import type { User } from "./types";
 import { connect, getUsers,createUser,deleteUser, getUserById, updateUser } from "./database";
 
 dotenv.config();

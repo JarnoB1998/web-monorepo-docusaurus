@@ -1,5 +1,5 @@
 import { type ReisData, type KostData } from "../types.ts";
-import { Kost } from "./Kost.ts";
+import type { Kost } from "./Kost.ts";
 
 export class Reis {
     private _kosten: Kost[] = [];

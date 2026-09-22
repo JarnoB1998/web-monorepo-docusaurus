@@ -1,7 +1,7 @@
-import express, { Express } from "express";
+import express, { type Express } from "express";
 import dotenv from "dotenv";
 import path from "path";
-import { TeamPokemon } from "./types";
+import type { TeamPokemon } from "./types";
 import { addToTeam, getTeam } from "./database";
 
 dotenv.config();

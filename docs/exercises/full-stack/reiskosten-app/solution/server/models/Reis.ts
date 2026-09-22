@@ -1,5 +1,5 @@
-import { ReisData, KostData } from "../types";
-import { Kost } from "./Kost";
+import type { ReisData, KostData } from "../types";
+import type { Kost } from "./Kost";
 
 export class Reis {
     private _kosten: Kost[] = [];

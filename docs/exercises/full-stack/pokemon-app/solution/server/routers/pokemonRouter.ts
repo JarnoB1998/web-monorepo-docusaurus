@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { Pokemon } from "../types";
+import type { Pokemon } from "../types";
 import { getPokemon, getPokemonById, catchPokemon, releasePokemon } from "../database";
 
 export function pokemonRouter(): Router {

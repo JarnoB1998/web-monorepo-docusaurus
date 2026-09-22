@@ -1,6 +1,6 @@
 import express from "express";
 import { login } from "../database";
-import { User } from "../types";
+import type { User } from "../types";
 
 export default function loginRouter() {
     const router = express.Router();

@@ -1,4 +1,4 @@
-import express, { ErrorRequestHandler, Express, NextFunction, Request, Response } from "express";
+import express, { type ErrorRequestHandler, type Express, type NextFunction, type Request, type Response } from "express";
 import dotenv from "dotenv";
 import path from "path";
 import multer from "multer";

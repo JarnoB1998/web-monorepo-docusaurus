@@ -5,7 +5,7 @@
 Voor het toevoegen van 1 element gebruiken we de functie `insertOne`. Door een object mee te geven als parameter wordt dit object toegevoegd aan de database:
 
 ```typescript
-import { MongoClient, ObjectId } from "mongodb";
+import { MongoClient, type ObjectId } from "mongodb";
 
 const uri = "mongodb+srv://<username>:<password>@<your-cluster-url>/test?retryWrites=true&w=majority";
 const client = new MongoClient(uri);

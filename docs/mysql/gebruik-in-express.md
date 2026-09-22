@@ -96,10 +96,10 @@ Voeg `.env`, `node_modules/` en `dist/` toe aan `.gitignore`. Meer uitleg vind j
 We bewaren één verbinding in `databaseConnection`. Alle databasefuncties gebruiken diezelfde verbinding.
 
 ```typescript title="database.ts"
-import mysql, { Connection, ConnectionOptions, FieldPacket, RowDataPacket } from "mysql2/promise";
+import mysql, { type Connection, type ConnectionOptions, type FieldPacket, type RowDataPacket } from "mysql2/promise";
 import dotenv from "dotenv";
 import initialPlanets from "./planets.json";
-import { Planet } from "./types";
+import type { Planet } from "./types";
 
 dotenv.config();
 
@@ -179,7 +179,7 @@ Maak een map `routers` met daarin `planetsRouter.ts`. De functie `planetsRouter(
 ```typescript title="routers/planetsRouter.ts"
 import { Router } from "express";
 import { getPlanets } from "../database";
-import { Planet } from "../types";
+import type { Planet } from "../types";
 
 export function planetsRouter(): Router {
     const router: Router = Router();
@@ -200,7 +200,7 @@ De route haalt de planeten op via `getPlanets()` en verstuurt ze met `res.json()
 In `index.ts` koppelen we de router aan `/planets`. De route `/` uit de router is daardoor bereikbaar als `GET /planets`.
 
 ```typescript title="index.ts"
-import express, { Express } from "express";
+import express, { type Express } from "express";
 import { connect } from "./database";
 import { planetsRouter } from "./routers/planetsRouter";
 

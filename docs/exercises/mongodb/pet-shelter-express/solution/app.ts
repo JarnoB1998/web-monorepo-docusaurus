@@ -1,8 +1,8 @@
-import express, { Express } from "express";
+import express, { type Express } from "express";
 import dotenv from "dotenv";
 import path from "path";
 import { connect, getPets, getPetsByType, getPetsWithAgeBetween, getSortedPets, searchPets } from "./database";
-import { Pet } from "./types";
+import type { Pet } from "./types";
 
 dotenv.config();
 

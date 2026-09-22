@@ -1,5 +1,5 @@
 import express from "express";
-import { Beer, Checkin } from "../types";
+import type { Beer, Checkin } from "../types";
 
 interface BeerWithCount {
     beer: Beer;

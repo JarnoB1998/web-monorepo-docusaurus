@@ -1,7 +1,7 @@
 import express from "express";
 import { login } from "../database";
 import { secureMiddleware } from "../middleware/secureMiddleware";
-import { User } from "../types";
+import type { User } from "../types";
 
 export function loginRouter() {
     const router = express.Router();

@@ -7,7 +7,7 @@ In dit onderdeel gaan we een volledig werkend login systeem maken. We gaan gebru
 We beginnen deze keer met een volledig nieuwe express app met de volgende code:
 
 ```typescript
-import express, { Express } from "express";
+import express, { type Express } from "express";
 import dotenv from "dotenv";
 import path, { format } from "path";
 
@@ -51,7 +51,7 @@ npm install mongodb
 Het eerste wat we gaan doen is het aanmaken van een interface voor onze gebruikers. Maak een nieuwe file aan in de root van je project en noem deze `types.ts`. Voeg de volgende code toe aan deze file:
 
 ```typescript
-import { ObjectId } from "mongodb";
+import type { ObjectId } from "mongodb";
 
 export interface User {
     _id?: ObjectId;
@@ -71,7 +71,7 @@ Maak een nieuwe file aan in de root van je project en noem deze `database.ts`. V
 import dotenv from "dotenv";
 dotenv.config();
 import { MongoClient } from "mongodb";
-import { User } from "./types";
+import type { User } from "./types";
 
 export const MONGODB_URI = process.env.MONGODB_URI ?? "mongodb://localhost:27017";
 
@@ -248,7 +248,7 @@ We gaan nu een nieuwe file aanmaken in de root van je project en noem deze `sess
 ```typescript
 import { MONGODB_URI } from "./database";
 import session, { MemoryStore } from "express-session";
-import { User } from "./types";
+import type { User } from "./types";
 import MongoStore from 'connect-mongo'
 
 const mongoStore = MongoStore.create({
@@ -342,7 +342,7 @@ app.get("/", async(req, res) => {
 Het probleem bij onze aanpak hierboven is dat we voor elke route gaan moeten controleren of de gebruiker ingelogd is. Dit is veel werk en kan foutgevoelig zijn. We gaan dus een middleware maken die controleert of de gebruiker ingelogd is. Maak een nieuwe file aan en noem deze `secureMiddleware.ts`. Voeg de volgende code toe aan deze file:
 
 ```typescript
-import { NextFunction, Request, Response } from "express";
+import type { NextFunction, Request, Response } from "express";
 
 export function secureMiddleware(req: Request, res: Response, next: NextFunction) {
     if (req.session.user) {
@@ -478,7 +478,7 @@ export interface SessionData {
 Een flash message is een bericht dat we maar 1 keer willen tonen, en dan verwijderen. We gaan nu een middleware maken die deze flash messages toevoegt aan de `res.locals`. Maak een nieuwe file aan en noem deze `flashMiddleware.ts`. Voeg de volgende code toe aan deze file:
 
 ```typescript
-import { NextFunction, Request, Response } from "express";
+import type { NextFunction, Request, Response } from "express";
 
 export function flashMiddleware(req: Request, res: Response, next: NextFunction) {
     if (req.session.message) {

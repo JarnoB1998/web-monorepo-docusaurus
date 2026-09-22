@@ -1,8 +1,8 @@
-import express, { Express } from "express";
+import express, { type Express } from "express";
 import dotenv from "dotenv";
 import path from "path";
 import { connect, getGuestBookEntries, createGuestBookEntry } from "./database";
-import { GuestBookEntry } from "./types";
+import type { GuestBookEntry } from "./types";
 
 dotenv.config();
 

@@ -1,9 +1,9 @@
-import express, { Express } from "express";
+import express, { type Express } from "express";
 import dotenv from "dotenv";
 import path from "path";
 import { connect, getSpellById,getSpells } from "./database";
-import { Spell } from "./types";
-import { SortDirection } from "mongodb";
+import type { Spell } from "./types";
+import type { SortDirection } from "mongodb";
 
 dotenv.config();
 

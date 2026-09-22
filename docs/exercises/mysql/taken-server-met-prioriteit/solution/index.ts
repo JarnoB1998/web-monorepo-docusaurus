@@ -1,4 +1,4 @@
-import express, { Express } from "express";
+import express, { type Express } from "express";
 import { connect } from "./database";
 import { takenRouter } from "./routers/takenRouter";
 

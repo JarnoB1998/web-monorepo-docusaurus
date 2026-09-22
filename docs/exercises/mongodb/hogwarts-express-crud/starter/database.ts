@@ -1,6 +1,6 @@
-import { Collection, MongoClient, SortDirection } from "mongodb";
+import { type Collection, MongoClient, type SortDirection } from "mongodb";
 import dotenv from "dotenv";
-import { Spell } from "./types";
+import type { Spell } from "./types";
 
 dotenv.config();
 

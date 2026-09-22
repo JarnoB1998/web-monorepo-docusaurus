@@ -260,6 +260,7 @@ Zoek je probleem op in de tabel en klik door naar de oplossing.
 | ------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
 | Clonen van je private repo lukt niet, of je wordt met het verkeerde account aangemeld | [Meerdere GitHub-accounts](#meerdere-github-accounts)                                     |
 | Foutmelding dat je WSL-versie niet up-to-date is                                      | [WSL-versie is niet up-to-date](#wsl-versie-is-niet-up-to-date)                           |
+| Devcontainer start niet door een Wayland- of WSLg-mount                               | [Wayland-socket uitschakelen](#wayland-socket-uitschakelen)                              |
 | Devcontainer start niet en je hebt een Docker-account                                 | [Docker e-mailadres niet geverifieerd](#docker-e-mailadres-niet-geverifieerd)             |
 | Foutmelding dat virtualisatie niet ingeschakeld is                                    | [Virtualisatie is niet ingeschakeld in BIOS](#virtualisatie-is-niet-ingeschakeld-in-bios) |
 
@@ -288,6 +289,31 @@ Je probeert de devcontainer te openen, maar krijgt een foutmelding dat je WSL-ve
    ```
 
 3. Herstart je computer om zeker te zijn dat alles goed werkt.
+
+### Wayland-socket uitschakelen {#wayland-socket-uitschakelen}
+
+Start je devcontainer op Windows met WSL niet op en verwijst de foutmelding naar een mount met `wayland`, `WSLg` of `\\wsl.localhost\`? VS Code probeert dan mogelijk een socket voor grafische Linux-applicaties aan de container te koppelen. Voor onze Node.js- en TypeScript-oefeningen is die koppeling niet nodig.
+
+**Oplossing:**
+
+1. Open de instellingen van VS Code met `Ctrl + ,` of via **File > Preferences > Settings**. Kies de tab **User**, zodat je de lokale gebruikersinstellingen aanpast.
+2. Zoek naar `dev.containers.mountWaylandSocket`.
+3. Vink **Dev Containers: Mount Wayland Socket** uit. De instelling staat nu op `false`.
+4. Krijg je ook een fout over de GPU? Zoek dan naar `dev.containers.gpuAvailability` en zet **Dev Containers: GPU Availability** op `none`. Deze stap is optioneel.
+5. Open het Command Palette met `F1` of `Ctrl + Shift + P`, kies **Dev Containers: Rebuild Container** en druk op Enter.
+6. Controleer de nieuwe opstartlog via **Dev Containers: Show Container Log**. De `--mount`-optie voor de Wayland-socket hoort verdwenen te zijn. Controleer ook of de container nu start.
+
+Je kan deze instellingen ook toevoegen via **Preferences: Open User Settings (JSON)** in het Command Palette:
+
+```jsonc title="VS Code-gebruikersinstellingen (settings.json)"
+{
+  "dev.containers.mountWaylandSocket": false,
+  // Optioneel, bij GPU-problemen:
+  "dev.containers.gpuAvailability": "none"
+}
+```
+
+Voeg de regels toe aan je bestaande gebruikersinstellingen. Deze opties horen in de `settings.json` van VS Code, niet in `.devcontainer/devcontainer.json`.
 
 ### Docker e-mailadres niet geverifieerd {#docker-e-mailadres-niet-geverifieerd}
 

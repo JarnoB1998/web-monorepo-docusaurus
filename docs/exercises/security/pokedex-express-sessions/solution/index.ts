@@ -1,8 +1,8 @@
-import express, { Express } from "express";
+import express, { type Express } from "express";
 import dotenv from "dotenv";
 import path from "path";
 import { connect, createPlayer, getPlayer, getPlayers, getPokemon, getPokemonById, savePlayer } from "./database";
-import { Player, Pokemon } from "./types";
+import type { Player, Pokemon } from "./types";
 import session from "./session";
 import { secureMiddleware } from "./middleware/secureMiddleware";
 

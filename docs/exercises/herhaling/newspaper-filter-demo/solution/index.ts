@@ -1,9 +1,9 @@
-import express, { Express } from "express";
+import express, { type Express } from "express";
 import { articles, topics } from "./data";
 
 import dotenv from "dotenv";
 import path from "path";
-import { NewsArticle } from "./types";
+import type { NewsArticle } from "./types";
 
 dotenv.config();
 

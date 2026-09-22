@@ -1,5 +1,5 @@
 import "./style.css";
-import { Pokemon, PokemonPage, PokemonLink } from "./types";
+import type { Pokemon, PokemonPage, PokemonLink } from "./types";
 import { getPokedex, catchPokemon, releasePokemon } from "./pokedex";
 import { getParty, addToParty, removeFromParty } from "./pokemonparty";
 

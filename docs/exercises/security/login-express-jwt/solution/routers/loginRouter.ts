@@ -1,7 +1,7 @@
 import express from "express";
 import { login } from "../database";
 import { secureMiddleware } from "../middleware/secureMiddleware";
-import { User } from "../types";
+import type { User } from "../types";
 import * as jwt from 'jsonwebtoken';
 
 export function loginRouter() {

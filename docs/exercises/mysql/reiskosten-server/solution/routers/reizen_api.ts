@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { Reis } from "../models/Reis";
+import type { Reis } from "../models/Reis";
 import { getReizen, getReisById, createReis, addKost } from "../database";
 
 export function reizenRouter(): Router {

@@ -50,7 +50,7 @@ Let op: find geeft niet direct een resultaat terug, maar een cursor. Je kan dit 
 Als we dit allemaal bij elkaar zetten, krijgen we volgende code:
 
 ```typescript
-import { MongoClient, ObjectId } from "mongodb";
+import { MongoClient, type ObjectId } from "mongodb";
 
 const uri = "mongodb+srv://<username>:<password>@<your-cluster-url>/test?retryWrites=true&w=majority";
 const client = new MongoClient(uri);

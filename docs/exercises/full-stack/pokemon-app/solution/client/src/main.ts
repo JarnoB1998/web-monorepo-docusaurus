@@ -1,5 +1,5 @@
 import "./style.css";
-import { Pokemon, PokemonPage, PokemonLink, OwnedPokemon } from "./types";
+import type { Pokemon, PokemonPage, PokemonLink, OwnedPokemon } from "./types";
 
 const apiUrl: string = "http://localhost:3000/pokemon";
 const pageSize: number = 20;

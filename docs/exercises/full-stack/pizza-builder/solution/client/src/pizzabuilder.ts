@@ -1,4 +1,4 @@
-import { Ingredient, Pizza } from "./types";
+import type { Ingredient, Pizza } from "./types";
 
 const apiUrl: string = "http://localhost:3000";
 

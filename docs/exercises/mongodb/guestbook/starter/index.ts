@@ -1,4 +1,4 @@
-import { MongoClient, ObjectId } from "mongodb";
+import { MongoClient, type ObjectId } from "mongodb";
 import readline from "readline-sync";
 
 const uri = ""; // Fill in your MongoDB connection string here

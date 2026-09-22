@@ -173,7 +173,7 @@ Hieronder vind je een voorbeeld van hoe je de code kan structureren in je Expres
 Types module (`types.ts`):
 
 ```typescript
-import { ObjectId } from "mongodb";
+import type { ObjectId } from "mongodb";
 
 export interface Student {
     _id?: ObjectId;
@@ -185,8 +185,8 @@ export interface Student {
 Database module (`database.ts`):
 
 ```typescript
-import { Collection, MongoClient } from "mongodb";
-import { Student } from "./types";
+import { type Collection, MongoClient } from "mongodb";
+import type { Student } from "./types";
 
 export const client = new MongoClient("mongodb://localhost:27017");
 export const studentsCollection: Collection<Student> = client.db("example").collection<Student>("student");
@@ -238,7 +238,7 @@ export async function connect() {
 Je Express.js applicatie (`index.ts`):
 
 ```typescript
-import express, { Express } from "express";
+import express, { type Express } from "express";
 import path from "path";
 import { connect, getStudents } from "./database";
 

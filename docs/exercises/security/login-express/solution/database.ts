@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 dotenv.config();
 import { MongoClient } from "mongodb";
-import { User } from "./types";
+import type { User } from "./types";
 import bcrypt from "bcrypt";
 
 export const MONGODB_URI = process.env.MONGODB_URI ?? "mongodb://localhost:27017";

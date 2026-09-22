@@ -1,6 +1,6 @@
-import { Collection, MongoClient, ObjectId } from "mongodb";
+import { type Collection, MongoClient, ObjectId } from "mongodb";
 import dotenv from "dotenv";
-import { Player, PokeApiPokemon, Pokemon } from "./types";
+import type { Player, PokeApiPokemon, Pokemon } from "./types";
 dotenv.config();
 
 export const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017";

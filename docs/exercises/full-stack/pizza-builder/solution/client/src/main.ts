@@ -1,5 +1,5 @@
 import "./style.css";
-import { Ingredient, Pizza } from "./types";
+import type { Ingredient, Pizza } from "./types";
 import { getIngredients, getPizzas, createPizza, deletePizza } from "./pizzabuilder";
 
 const form = document.querySelector<HTMLFormElement>("#pizza-form");

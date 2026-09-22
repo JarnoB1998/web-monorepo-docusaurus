@@ -1,5 +1,5 @@
 import express from "express";
-import { Bar } from "../types";
+import type { Bar } from "../types";
 import { getBarById, getBars } from "../database";
 
 export function barsRouter() {

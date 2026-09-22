@@ -1,4 +1,4 @@
-import { KostData } from "../types";
+import type { KostData } from "../types";
 
 export class Kost {
     public constructor(

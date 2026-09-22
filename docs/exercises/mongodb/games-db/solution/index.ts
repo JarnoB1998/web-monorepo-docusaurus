@@ -1,4 +1,4 @@
-import { MongoClient, Collection, ObjectId } from "mongodb";
+import { MongoClient, type Collection, type ObjectId } from "mongodb";
 
 const uri = "mongodb://localhost:27017";
 const client = new MongoClient(uri);

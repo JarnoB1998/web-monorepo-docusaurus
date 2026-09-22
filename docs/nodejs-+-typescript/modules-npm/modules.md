@@ -102,15 +102,10 @@ export interface Person {
 }
 ```
 
-We plaatsen deze interfaces vaak in een apart bestand met de naam `types.ts`. We kunnen deze dan importeren in een ander bestand.
+We plaatsen deze interfaces vaak in een apart bestand met de naam `types.ts`. Gebruik `import type` om een interface of type in een ander bestand te importeren:
 
 ```typescript
-import { Person } from './types';
+import type { Person } from './types.ts';
 ```
 
-Je kan ook specifiek aangeven dat je een interface wil importeren door gebruik te maken van de `import type` syntax.
-
-```typescript
-import type { Person } from './types';
-```
-
+Types en interfaces bestaan alleen tijdens de typecontrole. Met `import type` geef je aan dat deze import bij het uitvoeren van je code verwijderd moet worden.

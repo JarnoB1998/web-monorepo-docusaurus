@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { Taak } from "../types";
+import type { Taak } from "../types";
 import { getTaken, getEersteTaak, createTaak, deleteEersteTaak } from "../database";
 
 export function takenRouter(): Router {

@@ -1,6 +1,6 @@
-import { Collection, MongoClient } from "mongodb";
+import { type Collection, MongoClient } from "mongodb";
 import dotenv from "dotenv";
-import { User } from "./types";
+import type { User } from "./types";
 dotenv.config();
 
 export const client = new MongoClient(process.env.MONGODB_URI || "mongodb://localhost:27017");

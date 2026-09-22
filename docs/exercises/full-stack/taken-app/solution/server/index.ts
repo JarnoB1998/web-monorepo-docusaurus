@@ -1,7 +1,7 @@
-import express, { Express } from "express";
+import express, { type Express } from "express";
 import { connect } from "./database";
 import { takenRouter } from "./routers/takenRouter";
-import cors, { CorsOptions } from "cors";
+import cors, { type CorsOptions } from "cors";
 
 const app: Express = express();
 app.set("port", Number(process.env.PORT ?? 3000));

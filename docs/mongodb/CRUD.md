@@ -9,9 +9,9 @@ We gaan geen rekening houden met error afhandeling in dit deel van de cursus. We
 We gaan eerst de JSON data vanuit de API inladen in onze MongoDB database. We plaatsen de volgende code in een nieuw bestand `database.ts`.
 
 ```typescript
-import { Collection, MongoClient } from "mongodb";
+import { type Collection, MongoClient } from "mongodb";
 import dotenv from "dotenv";
-import { User } from "./types";
+import type { User } from "./types";
 dotenv.config();
 
 export const client = new MongoClient(process.env.MONGODB_URI || "mongodb://localhost:27017");

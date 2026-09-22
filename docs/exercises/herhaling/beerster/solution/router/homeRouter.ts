@@ -1,5 +1,5 @@
 import express from "express";
-import { Bar, Beer, Checkin } from "../types";
+import type { Bar, Beer, Checkin } from "../types";
 import app from "../app";
 import session from "../session";
 import { getCheckins, getBeers, getBars, getTopThreeBars, createCheckin } from "../database";

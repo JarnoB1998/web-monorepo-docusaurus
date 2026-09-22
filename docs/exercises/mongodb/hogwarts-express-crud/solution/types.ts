@@ -1,5 +1,5 @@
 // https://sampleapis.assimilate.be/harrypotter/spells
-import { ObjectId } from "mongodb";
+import type { ObjectId } from "mongodb";
 
 export type SpellType = "Charm" | "Curse" | "Jinx" | "Hex" | "Transfiguration" | "Healing" | "Conjuration";
 

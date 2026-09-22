@@ -1,6 +1,6 @@
-import { Collection, MongoClient, ObjectId, Sort, SortDirection } from "mongodb";
+import { type Collection, MongoClient, ObjectId, type Sort, type SortDirection } from "mongodb";
 import dotenv from "dotenv";
-import { Beer, Bar, Checkin, User } from "./types";
+import type { Beer, Bar, Checkin, User } from "./types";
 import bcrypt from "bcrypt";
 dotenv.config();
 

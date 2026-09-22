@@ -103,7 +103,7 @@ We beginnen met de connection options aan te maken. `ConnectionOptions` is een d
 Bewaar de opties in `config.ts` en vul je eigen lokale aanmeldgegevens in. De volgende stap is de connectie aanmaken met deze opties.
 
 ```typescript title="connectie.ts"
-import mysql, { Connection } from "mysql2";
+import mysql, { type Connection } from "mysql2";
 import { access } from "./config";
 
 const conn: Connection = mysql.createConnection(access);
@@ -132,9 +132,9 @@ export interface Planet extends RowDataPacket {
 Een select query met callback, wordt als volgt opgezet:
 
 ```typescript title="callback.ts"
-import mysql, { Connection, QueryError } from "mysql2";
+import mysql, { type Connection, type QueryError } from "mysql2";
 import { access } from "./config";
-import { Planet } from "./types";
+import type { Planet } from "./types";
 
 const conn: Connection = mysql.createConnection(access);
 
@@ -164,8 +164,8 @@ De ondersteuning voor promise (async / await) werd pas later toegevoegd aan de m
 De select query schrijven we dan als volgt:
 
 ```typescript title="promise.ts"
-import mysql, { Connection } from "mysql2/promise";
-import { Planet } from "./types";
+import mysql, { type Connection } from "mysql2/promise";
+import type { Planet } from "./types";
 import { access } from "./config";
 
 async function run(): Promise<void> {
@@ -213,8 +213,8 @@ Dit voorbeeld toont waarom je string interpolatie voor SQL-waarden moet vermijde
 :::
 
 ```typescript title="select-interpolatie.ts"
-import mysql, { Connection } from "mysql2/promise";
-import { Planet } from "./types";
+import mysql, { type Connection } from "mysql2/promise";
+import type { Planet } from "./types";
 import { access } from "./config";
 
 async function run(myname: string): Promise<void> {
@@ -239,8 +239,8 @@ Door string interpolatie kunnen we de parameters van de clause makkelijk toevoeg
 #### WHERE clause met prepared statement
 
 ```typescript title="select.ts"
-import mysql, { Connection } from "mysql2/promise";
-import { Planet } from "./types";
+import mysql, { type Connection } from "mysql2/promise";
+import type { Planet } from "./types";
 import { access } from "./config";
 
 async function run(myname: string): Promise<void> {
@@ -271,7 +271,7 @@ Een INSERT query kan eveneens en dit volgt hetzelfde stramien als een SELECT que
 Voorbeeld met string interpolatie, met hetzelfde risico op SQL-injectie als hierboven:
 
 ```typescript title="insert-interpolatie.ts"
-import mysql, { Connection } from "mysql2/promise";
+import mysql, { type Connection } from "mysql2/promise";
 import type { ResultSetHeader } from "mysql2";
 import { access } from "./config";
 
@@ -295,7 +295,7 @@ run('Mars');
 Voorbeeld met prepared statement
 
 ```typescript title="insert.ts"
-import mysql, { Connection } from "mysql2/promise";
+import mysql, { type Connection } from "mysql2/promise";
 import type { ResultSetHeader } from "mysql2";
 import { access } from "./config";
 
@@ -347,7 +347,7 @@ Het volgende script definieert een functie `connect()` , waarin een connection w
 De functie `connect()` kan zo gebruikt worden om een connectie te hergebruiken binnen een Node.js-script. We exporteren ook `close()` zodat het script na zijn werk zelf kan afsluiten. Wacht met `await` op `end()` om lopende queries af te werken.
 
 ```typescript title="dbconnect.ts"
-import mysql, { Connection } from "mysql2/promise";
+import mysql, { type Connection } from "mysql2/promise";
 import { access } from "./config";
 
 let connection: Connection | undefined;
@@ -383,9 +383,9 @@ export async function connect(): Promise<Connection> {
 Gebruik de module als volgt:
 
 ```typescript title="index.ts"
-import { Connection } from "mysql2/promise";
+import type { Connection } from "mysql2/promise";
 import { connect, close } from "./dbconnect";
-import { Planet } from "./types";
+import type { Planet } from "./types";
 
 async function main(): Promise<void> {
     try {

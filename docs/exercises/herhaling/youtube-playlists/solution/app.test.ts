@@ -3,7 +3,7 @@ import request from "supertest";
 import app from "./app";
 import bcrypt from "bcrypt";
 import { parse } from "node-html-parser";
-import { Video } from "./types";
+import type { Video } from "./types";
 
 describe("loginRouter tests", () => {
     test("that a user can see the login page", async () => {

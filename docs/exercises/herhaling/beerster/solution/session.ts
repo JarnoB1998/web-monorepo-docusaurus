@@ -1,7 +1,7 @@
 import { MONGODB_URI } from "./database";
 import session from "express-session";
 import mongoDbSession from "connect-mongodb-session";
-import { FlashMessage } from "./types";
+import type { FlashMessage } from "./types";
 const MongoDBStore = mongoDbSession(session);
 
 const mongoStore = new MongoDBStore({

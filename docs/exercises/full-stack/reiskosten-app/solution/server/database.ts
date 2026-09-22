@@ -1,12 +1,12 @@
 import mysql, {
-    Connection,
-    ConnectionOptions,
-    RowDataPacket,
-    FieldPacket,
-    ResultSetHeader
+    type Connection,
+    type ConnectionOptions,
+    type RowDataPacket,
+    type FieldPacket,
+    type ResultSetHeader
 } from "mysql2/promise";
 import dotenv from "dotenv";
-import { ReisRecord, KostData } from "./types";
+import type { ReisRecord, KostData } from "./types";
 import { Reis } from "./models/Reis";
 import { Kost } from "./models/Kost";
 

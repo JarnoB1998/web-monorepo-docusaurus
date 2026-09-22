@@ -1,4 +1,4 @@
-import express, { Express } from "express";
+import express, { type Express } from "express";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import path from "path";

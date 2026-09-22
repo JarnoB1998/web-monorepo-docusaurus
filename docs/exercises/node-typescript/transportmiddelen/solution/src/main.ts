@@ -1,4 +1,4 @@
-import { Auto, Fiets, Voertuig } from "./voertuigen.ts";
+import { Auto, Fiets, type Voertuig } from "./voertuigen.ts";
 
 const bmw: Auto = new Auto("bmw", "BENZINE");
 const tesla: Auto = new Auto("tesla", "ELEKTRISCH");

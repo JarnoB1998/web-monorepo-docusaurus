@@ -1,12 +1,12 @@
 import mysql, {
-    Connection,
-    ConnectionOptions,
-    RowDataPacket,
-    FieldPacket,
-    ResultSetHeader
+    type Connection,
+    type ConnectionOptions,
+    type RowDataPacket,
+    type FieldPacket,
+    type ResultSetHeader
 } from "mysql2/promise";
 import dotenv from "dotenv";
-import { Taak } from "./types";
+import type { Taak } from "./types";
 
 dotenv.config();
 const access: ConnectionOptions = {

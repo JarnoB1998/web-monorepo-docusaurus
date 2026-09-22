@@ -1,6 +1,6 @@
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
-import express, { Express } from "express";
+import express, { type Express } from "express";
 import path from "path";
 import { flashMiddleware } from "./middleware/flashMiddleware";
 import utilMiddleware from "./middleware/utilMiddleware";

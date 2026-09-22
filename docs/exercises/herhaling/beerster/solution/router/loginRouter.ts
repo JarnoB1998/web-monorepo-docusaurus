@@ -1,6 +1,6 @@
 import express from "express";
 import { login } from "../database";
-import { User } from "../types";
+import type { User } from "../types";
 import session from "../session";
 import * as jwt from "jsonwebtoken";
 

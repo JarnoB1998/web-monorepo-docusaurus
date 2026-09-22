@@ -1,5 +1,5 @@
 import "./style.css";
-import { Taak } from "./types";
+import type { Taak } from "./types";
 
 const apiUrl: string = "http://localhost:3000";
 const form = document.querySelector<HTMLFormElement>("#task-form");

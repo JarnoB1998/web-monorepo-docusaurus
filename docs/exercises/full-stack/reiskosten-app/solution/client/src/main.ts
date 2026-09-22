@@ -1,5 +1,5 @@
 import "./style.css";
-import { ReisData, KostData } from "./types";
+import type { ReisData, KostData } from "./types";
 
 const apiUrl: string = "http://localhost:3000";
 const reisForm = document.querySelector<HTMLFormElement>("#reis-form");
