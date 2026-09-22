@@ -294,6 +294,38 @@ Je probeert de devcontainer te openen, maar krijgt een foutmelding dat je WSL-ve
 
 Start je devcontainer op Windows met WSL niet op en verwijst de foutmelding naar een mount met `wayland`, `WSLg` of `\\wsl.localhost\`? VS Code probeert dan mogelijk een socket voor grafische Linux-applicaties aan de container te koppelen. Voor onze Node.js- en TypeScript-oefeningen is die koppeling niet nodig.
 
+<details>
+<summary>Voorbeeld van de foutmelding en volledige stacktrace</summary>
+
+De paden en versienummers kunnen op jouw computer verschillen.
+
+```text
+[2023-09-19T10:31:18.520Z] docker: Error response from daemon: \\wsl.localhost\Ubuntu-20.04\mnt\wslg\runtim
+e-dir\wayland-0%!(EXTRA string=is not a valid Windows path).
+See 'docker run --help'.
+[2023-09-19T10:31:18.611Z] Stop (546 ms): Run: docker run --sig-proxy=false -a STDOUT -a STDERR --mount source=c:\Users\someone\projects\app1,target=/workspace,type=bind,consistency=cached --mount type=volume,src=vscode,dst=/vscode --mount type=bind,src=\\wsl.localhost\Ubuntu-20.04\mnt\wslg\runtime-dir\wayland-0,dst=/tmp/vscode-wayland-0e3c539d-fff8-4b07-beee-268f1d0b7d0e.sock -l devcontainer.local_folder=c:\Users\someone\projects\app1 -l devcontainer.config_file=c:\Users\someone\projects\app1\.devcontainer\devcontainer.json --entrypoint /bin/sh -l devcontainer.metadata=[{"id":"ghcr.io/devcontainers/features/common-utils:2"},{"id":"ghcr.io/devcontainers/features/git:1"},{"id":"ghcr.io/devcontainers/features/node:1","customizations":{"vscode":{"extensions":["dbaeumer.vscode-eslint"]}}},{"customizations":{"vscode":{"extensions":["dbaeumer.vscode-eslint"]}},"remoteUser":"node"},{"id":"ghcr.io/devcontainers/features/git:1"},{"customizations":{"vscode":{"extensions":["dbaeumer.vscode-eslint"]}},"remoteUser":"node"},{"mounts":[]}] mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye -c echo Container started
+[2023-09-19T10:31:18.613Z] Start: Run: docker ps -q -a --filter label=devcontainer.local_folder=c:\Users\someone\projects\app1 --filter label=devcontainer.config_file=c:\Users\someone\projects\app1\.devcontainer\devcontainer.json
+[2023-09-19T10:31:18.626Z] Stop (593 ms): Run: docker events --format {{json .}} --filter event=start
+[2023-09-19T10:31:18.949Z] Stop (336 ms): Run: docker ps -q -a --filter label=devcontainer.local_folder=c:\Users\someone\projects\app1 --filter label=devcontainer.config_file=c:\Users\someone\projects\app1\.devcontainer\devcontainer.json
+[2023-09-19T10:31:18.953Z] Error: Command failed: docker run --sig-proxy=false -a STDOUT -a STDERR --mount source=c:\Users\someone\projects\app1,target=/workspace,type=bind,consistency=cached --mount type=volume,src=vscode,dst=/vscode --mount type=bind,src=\\wsl.localhost\Ubuntu-20.04\mnt\wslg\runtime-dir\wayland-0,dst=/tmp/vscode-wayland-0e3c539d-fff8-4b07-beee-268f1d0b7d0e.sock -l devcontainer.local_folder=c:\Users\someone\projects\app1 -l devcontainer.config_file=c:\Users\someone\projects\app1\.devcontainer\devcontainer.json --entrypoint /bin/sh -l devcontainer.metadata=[{"id":"ghcr.io/devcontainers/features/common-utils:2"},{"id":"ghcr.io/devcontainers/features/git:1"},{"id":"ghcr.io/devcontainers/features/node:1","customizations":{"vscode":{"extensions":["dbaeumer.vscode-eslint"]}}},{"customizations":{"vscode":{"extensions":["dbaeumer.vscode-eslint"]}},"remoteUser":"node"},{"id":"ghcr.io/devcontainers/features/git:1"},{"customizations":{"vscode":{"extensions":["dbaeumer.vscode-eslint"]}},"remoteUser":"node"},{"mounts":[]}] mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye -c echo Container started
+[2023-09-19T10:31:18.953Z] trap "exit 0" 15
+[2023-09-19T10:31:18.953Z] exec "$@"
+[2023-09-19T10:31:18.953Z] while sleep 1 & wait $!; do :; done -
+[2023-09-19T10:31:18.954Z]     at gAA (c:\Users\someone\.vscode\extensions\ms-vscode-remote.remote-containers-0.309.0\dist\spec-node\devContainersSpecCLI.js:462:1066)
+[2023-09-19T10:31:18.954Z]     at FK (c:\Users\someone\.vscode\extensions\ms-vscode-remote.remote-containers-0.309.0\dist\spec-node\devContainersSpecCLI.js:462:1002)
+[2023-09-19T10:31:18.954Z]     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2023-09-19T10:31:18.954Z]     at async FAA (c:\Users\someone\.vscode\extensions\ms-vscode-remote.remote-containers-0.309.0\dist\spec-node\devContainersSpecCLI.js:479:3660)
+[2023-09-19T10:31:18.954Z]     at async GC (c:\Users\someone\.vscode\extensions\ms-vscode-remote.remote-containers-0.309.0\dist\spec-node\devContainersSpecCLI.js:479:4775)
+[2023-09-19T10:31:18.954Z]     at async VeA (c:\Users\someone\.vscode\extensions\ms-vscode-remote.remote-containers-0.309.0\dist\spec-node\devContainersSpecCLI.js:611:12240)
+[2023-09-19T10:31:18.954Z]     at async WeA (c:\Users\someone\.vscode\extensions\ms-vscode-remote.remote-containers-0.309.0\dist\spec-node\devContainersSpecCLI.js:611:11981)
+[2023-09-19T10:31:18.972Z] Stop (2845 ms): Run: C:\Users\someone\AppData\Local\Programs\Microsoft VS Code\Code.exe --ms-enable-electron-run-as-node c:\Users\someone\.vscode\extensions\ms-vscode-remote.remote-containers-0.309.0\dist\spec-node\devContainersSpecCLI.js up --user-data-folder c:\Users\someone\AppData\Roaming\Code\User\globalStorage\ms-vscode-remote.remote-containers\data --container-session-data-folder /tmp/devcontainers-07b5c790-2533-49ff-8a65-9d12776720f61695119468050 --workspace-folder c:\Users\someone\projects\app1 --workspace-mount-consistency cached --id-label devcontainer.local_folder=c:\Users\someone\projects\app1 --id-label devcontainer.config_file=c:\Users\someone\projects\app1\.devcontainer\devcontainer.json --log-level debug --log-format json --config c:\Users\someone\projects\app1\.devcontainer\devcontainer.json --default-user-env-probe loginInteractiveShell --mount type=volume,source=vscode,target=/vscode,external=true --mount type=bind,source=\\wsl.localhost\Ubuntu-20.04\mnt\wslg\runtime-dir\wayland-0,target=/tmp/vscode-wayland-0e3c539d-fff8-4b07-beee-268f1d0b7d0e.sock --skip-post-create --update-remote-user-uid-default on --mount-workspace-git-root true
+[2023-09-19T10:31:18.972Z] Exit code 1
+[2023-09-19T10:31:18.978Z] Command failed: C:\Users\someone\AppData\Local\Programs\Microsoft VS Code\Code.exe --ms-enable-electron-run-as-node c:\Users\someone\.vscode\extensions\ms-vscode-remote.remote-containers-0.309.0\dist\spec-node\devContainersSpecCLI.js up --user-data-folder c:\Users\someone\AppData\Roaming\Code\User\globalStorage\ms-vscode-remote.remote-containers\data --container-session-data-folder /tmp/devcontainers-07b5c790-2533-49ff-8a65-9d12776720f61695119468050 --workspace-folder c:\Users\someone\projects\app1 --workspace-mount-consistency cached --id-label devcontainer.local_folder=c:\Users\someone\projects\app1 --id-label devcontainer.config_file=c:\Users\someone\projects\app1\.devcontainer\devcontainer.json --log-level debug --log-format json --config c:\Users\someone\projects\app1\.devcontainer\devcontainer.json --default-user-env-probe loginInteractiveShell --mount type=volume,source=vscode,target=/vscode,external=true --mount type=bind,source=\\wsl.localhost\Ubuntu-20.04\mnt\wslg\runtime-dir\wayland-0,target=/tmp/vscode-wayland-0e3c539d-fff8-4b07-beee-268f1d0b7d0e.sock --skip-post-create --update-remote-user-uid-default on --mount-workspace-git-root true
+[2023-09-19T10:31:18.978Z] Exit code 1
+```
+
+</details>
+
 **Oplossing:**
 
 1. Open de instellingen van VS Code met `Ctrl + ,` of via **File > Preferences > Settings**. Kies de tab **User**, zodat je de lokale gebruikersinstellingen aanpast.
