@@ -3,6 +3,7 @@ const path = require('node:path');
 const { spawnSync } = require('node:child_process');
 const { assembleCourse } = require('./assemble-course.cjs');
 const { buildExercises } = require('./build-exercises.cjs');
+const { serveCourse } = require('./serve-course.cjs');
 
 async function main() {
   const args = process.argv.slice(2);
@@ -25,6 +26,10 @@ async function main() {
     console.log(`Assembled ${assembly.documents.length} documents and ${assembly.exercises.length} exercises into ${siteDir}`);
   }
   if (command === 'assemble') return;
+  if (command === 'serve') {
+    await serveCourse({ siteDir, args });
+    return;
+  }
   const cli = command === 'typecheck' ? require.resolve('typescript/bin/tsc')
     : path.join(path.dirname(require.resolve('@docusaurus/core/package.json')), 'bin/docusaurus.mjs');
   const cliArgs = command === 'typecheck' ? args : [command, ...args];

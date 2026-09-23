@@ -1,6 +1,6 @@
 # Async Test
 
-Download het <a href="/exercises/node-typescript/async-test/starter.zip">starter</a> project. Dit project bevat een `async.ts` module. Schrijf de volgende testen:
+Download het <a href="/exercise-files/node-typescript/async-test/starter.zip">starter</a> project. Dit project bevat een `async.ts` module. Schrijf de volgende testen:
 
 - Test dat de functie `getStudents` een lijst van studenten teruggeeft.
 - Test dat de functie `getStudents` het exacte aantal studenten teruggeeft dat gevraagd werd.

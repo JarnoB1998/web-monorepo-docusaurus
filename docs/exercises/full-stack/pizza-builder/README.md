@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # Pizza Builder
 
-Vertrek van dit [starterproject](/exercises/full-stack/pizza-builder/starter.zip) voor de client. Het bevat de HTML en CSS; de TypeScript-code werk je zelf uit.
+Vertrek van dit [starterproject](/exercise-files/full-stack/pizza-builder/starter.zip) voor de client. Het bevat de HTML en CSS; de TypeScript-code werk je zelf uit.
 
 ## Doel van de oefening
 

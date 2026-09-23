@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Verander divs
 
-Maak een nieuw VITE project `verander-divs`. Je kan ook vertrekken van het [starterproject](/exercises/frontend/verander-divs/starter.zip) met de HTML en CSS voor deze oefening.
+Maak een nieuw VITE project `verander-divs`. Je kan ook vertrekken van het [starterproject](/exercise-files/frontend/verander-divs/starter.zip) met de HTML en CSS voor deze oefening.
 
 Zet in je HTML drie divs onder elkaar en schrijf een script om de achtergrondkleur van een div te laten veranderen na een klik op de knop. Achtergrond 1 zal veranderen na de eerste klik op de knop, bij de tweede klik wordt achtergrond 1 terug weggehaald en krijgt div 2 de achtergrond enzovoorts
 

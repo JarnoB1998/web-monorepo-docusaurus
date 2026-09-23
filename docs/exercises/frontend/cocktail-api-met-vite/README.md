@@ -4,7 +4,7 @@ sidebar_position: 6
 
 # Cocktail API met Vite
 
-Download het [starterproject](/exercises/frontend/cocktail-api-met-vite/starter.zip) en pak het uit in een nieuwe map. Dit project bevat de HTML en CSS voor deze oefening. Voer `npm install` en `npm run dev` uit en werk de functionaliteit uit in `src/main.ts`.
+Download het [starterproject](/exercise-files/frontend/cocktail-api-met-vite/starter.zip) en pak het uit in een nieuwe map. Dit project bevat de HTML en CSS voor deze oefening. Voer `npm install` en `npm run dev` uit en werk de functionaliteit uit in `src/main.ts`.
 
 In labo 4 zijn we al aan de slag gegaan met de cocktails api.
 

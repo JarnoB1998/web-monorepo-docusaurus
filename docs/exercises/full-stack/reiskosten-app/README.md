@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Reiskosten app
 
-Vertrek van dit [starterproject](/exercises/full-stack/reiskosten-app/starter.zip) voor de client. Het bevat de HTML en CSS; de TypeScript-code werk je zelf uit.
+Vertrek van dit [starterproject](/exercise-files/full-stack/reiskosten-app/starter.zip) voor de client. Het bevat de HTML en CSS; de TypeScript-code werk je zelf uit.
 
 Maak twee projecten aan : reiskosten-client en reiskosten-server.
 

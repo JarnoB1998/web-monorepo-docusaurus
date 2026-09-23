@@ -2,7 +2,7 @@
 
 We beginnen in deze opgave met een bestaande node applicatie die een gastenboek bijhoudt. Als je de applicatie opstart wordt er achter een naam gevraagd en vervolgens wordt er een bericht ingevoerd. Deze gegevens worden opgeslagen in een MongoDB database en worden vervolgens getoond in de console.
 
-Je kan het bestaande project vinden in het <a href="/exercises/mongodb/guestbook/starter.zip">starter.zip</a> bestand.
+Je kan het bestaande project vinden in het <a href="/exercise-files/mongodb/guestbook/starter.zip">starter.zip</a> bestand.
 
 ## Opdracht
 

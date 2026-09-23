@@ -4,7 +4,7 @@ sidebar_position: 9
 
 # Rick and Morty
 
-Download het [starterproject](/exercises/frontend/rick-and-morty/starter.zip) en pak het uit in een nieuwe map. Dit project bevat de HTML en CSS voor deze oefening. Voer `npm install` en `npm run dev` uit en werk de functionaliteit uit in `src/main.ts`.
+Download het [starterproject](/exercise-files/frontend/rick-and-morty/starter.zip) en pak het uit in een nieuwe map. Dit project bevat de HTML en CSS voor deze oefening. Voer `npm install` en `npm run dev` uit en werk de functionaliteit uit in `src/main.ts`.
 
 Het doel van deze oefening is om een applicatie te bouwen voor het tonen van alle personages uit de tekenfilmserie ‘Rick and Morty’.
 

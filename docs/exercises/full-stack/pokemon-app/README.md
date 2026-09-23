@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Pokémon app
 
-Vertrek van dit [starterproject](/exercises/full-stack/pokemon-app/starter.zip) voor de client. Het bevat de HTML en CSS; de TypeScript-code werk je zelf uit.
+Vertrek van dit [starterproject](/exercise-files/full-stack/pokemon-app/starter.zip) voor de client. Het bevat de HTML en CSS; de TypeScript-code werk je zelf uit.
 
 Het doel van deze oefening is een app te maken die bijhoudt welke Pokémon je gevangen hebt. Hiervoor maken we eerst een overzicht van alle Pokémon. Je kan op een Pokémon aanduiden dat je deze gevangen hebt. Deze actie wordt doorgegeven aan de server die dit in de database bijhoudt. Op een ander scherm kunnen we dan het overzicht van alle Pokémon die je al gevangen hebt opvragen. Hier kan je dan aanduiden dat de Pokémon terug vrijgelaten wordt.
 

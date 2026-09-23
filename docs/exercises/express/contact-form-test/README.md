@@ -1,6 +1,6 @@
 # Contact Form Test
 
-Vertrek vanuit je eigen oplossing van de <a href="../contact-form">Contact Form</a> oefening of vertrek vanuit de <a href="../contact-form/solution.zip">oplossing</a>.
+Vertrek vanuit je eigen oplossing van de <a href="../contact-form">Contact Form</a> oefening of vertrek vanuit de <a href="/exercise-files/express/contact-form/solution.zip">oplossing</a>.
 
 - Splits de applicatie op in een `app.ts` en een `index.ts` zodat je hem kan testen.
 

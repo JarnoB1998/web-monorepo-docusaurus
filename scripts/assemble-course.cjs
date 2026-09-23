@@ -210,7 +210,8 @@ async function assembleCourse({ courseDir, sourceDir = SOURCE_DIR }) {
     }
     for (const directory of ['src', 'static']) {
       await copyTree(path.join(sourceDir, directory), path.join(staging, directory),
-        (file) => directory !== 'static' || !file.startsWith('exercises/'));
+        (file) => directory !== 'static' ||
+          (!file.startsWith('exercises/') && !file.startsWith('exercise-files/')));
     }
     await fs.copyFile(path.join(SOURCE_DIR, 'package.json'), path.join(staging, 'package.json'));
     await fs.copyFile(path.join(SOURCE_DIR, 'tsconfig.json'), path.join(staging, 'tsconfig.json'));

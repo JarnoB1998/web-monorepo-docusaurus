@@ -2,7 +2,7 @@
 
 Maak een nieuw express project aan met de naam `beerster`. In dit project gaan we een applicatie bouwen die het mogelijk maakt om in te checken op een locatie en te registreren welk bier je daar drinkt. 
 
-Je kan starten van een aantal starter html bestanden door het [starter project](https://github.com/similonap/webontwikkeling-2024/raw/main/exercises/herhaling/beerster/starter.zip) te downloaden.
+Je kan starten van een aantal starter html bestanden door het [starter project](https://github.com/similonap/webontwikkeling-2024/raw/main/exercise-files/herhaling/beerster/starter.zip) te downloaden.
 
 ## API's
 

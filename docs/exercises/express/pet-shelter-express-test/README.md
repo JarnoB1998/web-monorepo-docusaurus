@@ -1,6 +1,6 @@
 # Pet Shelter Express Test
 
-Vertrek vanuit je eigen oplossing van de <a href="../petshelter-form">Pet Shelter</a> oefening of vertrek vanuit de <a href="../petshelter-form/solution.zip">oplossing</a>.
+Vertrek vanuit je eigen oplossing van de <a href="../petshelter-form">Pet Shelter</a> oefening of vertrek vanuit de <a href="/exercise-files/express/petshelter-form/solution.zip">oplossing</a>.
 
 - Splits de applicatie op in een `app.ts` en een `index.ts` zodat je hem kan testen.
 

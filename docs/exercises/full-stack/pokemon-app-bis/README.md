@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # Pokémon app met party
 
-Vertrek van dit [starterproject](/exercises/full-stack/pokemon-app-bis/starter.zip) voor de client. Het bevat de HTML en CSS; de TypeScript-code werk je zelf uit.
+Vertrek van dit [starterproject](/exercise-files/full-stack/pokemon-app-bis/starter.zip) voor de client. Het bevat de HTML en CSS; de TypeScript-code werk je zelf uit.
 
 ## Doel van de oefening
 

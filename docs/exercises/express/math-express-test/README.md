@@ -1,6 +1,6 @@
 # Math Express Test
 
-Download het <a href="/exercises/express/math-express-test/starter.zip">starter</a> project. Dit project bevat een express applicatie die een GET en een POST van `/sum` endpoint voorziet. De GET endpoint verwacht twee query parameters `a` en `b` en geeft de som van deze twee getallen terug. De POST endpoint verwacht een JSON body met twee getallen `a` en `b` en geeft de som van deze twee getallen terug.
+Download het <a href="/exercise-files/express/math-express-test/starter.zip">starter</a> project. Dit project bevat een express applicatie die een GET en een POST van `/sum` endpoint voorziet. De GET endpoint verwacht twee query parameters `a` en `b` en geeft de som van deze twee getallen terug. De POST endpoint verwacht een JSON body met twee getallen `a` en `b` en geeft de som van deze twee getallen terug.
 
 Schrijf de volgende tests aan de hand van `vitest` en `supertest`:
 

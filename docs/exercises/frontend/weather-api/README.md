@@ -4,7 +4,7 @@ sidebar_position: 7
 
 # Weather API
 
-Download het [starterproject](/exercises/frontend/weather-api/starter.zip) en pak het uit in een nieuwe map. Dit project bevat de HTML en CSS voor deze oefening. Voer `npm install` en `npm run dev` uit en werk de functionaliteit uit in `src/main.ts`.
+Download het [starterproject](/exercise-files/frontend/weather-api/starter.zip) en pak het uit in een nieuwe map. Dit project bevat de HTML en CSS voor deze oefening. Voer `npm install` en `npm run dev` uit en werk de functionaliteit uit in `src/main.ts`.
 
 Open Meteo is een externe API die gratis het weer aanbiedt.
 

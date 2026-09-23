@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Taken app
 
-Vertrek van dit [starterproject](/exercises/full-stack/taken-app/starter.zip) voor de client. Het bevat de HTML en CSS; de TypeScript-code werk je zelf uit.
+Vertrek van dit [starterproject](/exercise-files/full-stack/taken-app/starter.zip) voor de client. Het bevat de HTML en CSS; de TypeScript-code werk je zelf uit.
 
 Maak twee projecten aan taken-client en taken-server.
 

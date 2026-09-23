@@ -1,6 +1,6 @@
 # Math Test
 
-Download het <a href="/exercises/node-typescript/math-test/starter.zip">starter</a> project. Dit project bevat een `math.ts` module. Schrijf de volgende testen:
+Download het <a href="/exercise-files/node-typescript/math-test/starter.zip">starter</a> project. Dit project bevat een `math.ts` module. Schrijf de volgende testen:
 
 - Test dat de functie `add` twee getallen optelt.
 - Test dat de functie `subtract` het tweede getal van het eerste aftrekt.

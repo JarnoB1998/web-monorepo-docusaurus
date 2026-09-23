@@ -1,6 +1,6 @@
 # Shopping Cookie
 
-Voor deze oefening beginnen we met een <a href="/exercises/security/shopping-cookie/starter.zip">starter project</a>. Download dit project en pak het uit in een nieuwe folder.
+Voor deze oefening beginnen we met een <a href="/exercise-files/security/shopping-cookie/starter.zip">starter project</a>. Download dit project en pak het uit in een nieuwe folder.
 
 Als we het starter project opstart krijg je de volgende situatie te zien:
 

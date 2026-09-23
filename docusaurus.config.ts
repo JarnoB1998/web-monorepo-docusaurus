@@ -17,9 +17,6 @@ const config: Config = {
   markdown: {
     format: 'mdx',
     mermaid: true,
-    preprocessor: ({ filePath, fileContent }) => {
-      return fileContent;
-    },
     hooks: {
       onBrokenMarkdownLinks: 'warn',
       onBrokenMarkdownImages: 'warn',
@@ -73,6 +70,26 @@ const config: Config = {
         },
       } satisfies Preset.Options,
     ],
+  ],
+
+  plugins: [
+    function browserOnlyWebContainer() {
+      return {
+        name: 'browser-only-webcontainer',
+        configureWebpack(_config, isServer) {
+          return isServer
+            ? { resolve: { alias: { '@webcontainer/api': false } } }
+            : {
+                devServer: {
+                  headers: {
+                    'Cross-Origin-Opener-Policy': 'same-origin',
+                    'Cross-Origin-Embedder-Policy': 'require-corp',
+                  },
+                },
+              };
+        },
+      };
+    },
   ],
 
   themeConfig: {

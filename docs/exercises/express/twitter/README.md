@@ -2,7 +2,7 @@
 
 ## 🗃️ Startbestanden
 
-Je begint van een file <a href="/exercises/express/twitter/starter.zip">starter.zip</a>. Deze bevat een aantal belangrijke bestanden: 
+Je begint van een file <a href="/exercise-files/express/twitter/starter.zip">starter.zip</a>. Deze bevat een aantal belangrijke bestanden:
 
 - `data.ts` - bevat alle tweets en gebruikersprofielen. Alsook de functies om deze op te halen.
 - `index.ts` - bevat de basis van de Express applicatie. Hierin worden de routes aangemaakt en de templates geregeld.

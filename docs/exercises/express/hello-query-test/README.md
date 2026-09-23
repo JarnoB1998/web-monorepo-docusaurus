@@ -1,6 +1,6 @@
 # Hello Query Test
 
-Vertrek vanuit je eigen oplossing van de <a href="../hello-query">Hello Express</a> oefening of vertrek vanuit de <a href="../hello-query/solution.zip">oplossing</a>.
+Vertrek vanuit je eigen oplossing van de <a href="../hello-query">Hello Express</a> oefening of vertrek vanuit de <a href="/exercise-files/express/hello-query/solution.zip">oplossing</a>.
 
 - Splits de applicatie op in een `app.ts` en een `index.ts` zodat je hem kan testen.
 

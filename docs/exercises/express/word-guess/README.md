@@ -1,6 +1,6 @@
 # Word Guess
 
-We beginnen met een bestaande express applicatie. Deze applicatie bevat al een aantal routes en ejs bestanden. De bedoeling is dat je deze applicatie verder uitbreidt met extra functionaliteit. Je kan de starter applicatie hier vinden: <a href="/exercises/express/word-guess/starter.zip">Word Guess</a>
+We beginnen met een bestaande express applicatie. Deze applicatie bevat al een aantal routes en ejs bestanden. De bedoeling is dat je deze applicatie verder uitbreidt met extra functionaliteit. Je kan de starter applicatie hier vinden: <a href="/exercise-files/express/word-guess/starter.zip">Word Guess</a>
 
 ## Includes
 
