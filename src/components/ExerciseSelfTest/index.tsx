@@ -308,7 +308,7 @@ export default function ExerciseSelfTest({ category, exercise }: ExerciseSelfTes
       const tests = await withTimeout(
         webcontainer.spawn('node', [
           'node_modules/vitest/vitest.mjs', 'run', 'verification', '--reporter=json',
-          '--outputFile=verification-results.json', '--no-color',
+          '--outputFile=verification-results.json', '--testTimeout=10000', '--hookTimeout=10000', '--no-color',
         ], processOptions),
         TIMEOUTS.spawn,
         'Vitest kon niet gestart worden. Probeer opnieuw.',
@@ -327,7 +327,8 @@ export default function ExerciseSelfTest({ category, exercise }: ExerciseSelfTes
         );
         const report = JSON.parse(reportText) as VitestReport;
         nextChecks = checksFromReport(report);
-      } catch {
+      } catch (error) {
+        if (error instanceof OperationTimeoutError) throw error;
         nextChecks = [{
           id: 'vitest',
           label: 'Verificatietests',
@@ -346,7 +347,12 @@ export default function ExerciseSelfTest({ category, exercise }: ExerciseSelfTes
     }
   };
 
-  const progressLabel = state === 'testing' ? 'Tests uitvoeren…' : 'Tests voorbereiden…';
+  const progressLabel: Partial<Record<RunState, string>> = {
+    loading: 'Tests laden…',
+    installing: 'Tests voorbereiden… (maximaal 2 minuten)',
+    typechecking: 'Code controleren… (maximaal 45 seconden)',
+    testing: 'Tests uitvoeren… (maximaal 60 seconden)',
+  };
 
   return (
     <section className={styles.panel} aria-labelledby={`self-test-${exercise}`}>
@@ -407,7 +413,7 @@ export default function ExerciseSelfTest({ category, exercise }: ExerciseSelfTes
           {running && (
             <div className={styles.progress} role="status">
               <span className={styles.spinner} aria-hidden="true" />
-              <span>{progressLabel}</span>
+              <span>{progressLabel[state]}</span>
             </div>
           )}
           {checks.length > 0 && (

@@ -156,9 +156,28 @@ function generatedConfig(config, selected) {
   const preset = docsPreset(config);
   return {
     ...config,
+    plugins: [...(config.plugins ?? []), browserOnlyWebContainerPlugin],
     presets: config.presets.map((entry) => entry !== preset ? entry : [entry[0], {
       ...entry[1], docs: { ...entry[1].docs, path: 'docs', include: selected },
     }]),
+  };
+}
+
+function browserOnlyWebContainerPlugin() {
+  return {
+    name: 'browser-only-webcontainer',
+    configureWebpack(_config, isServer) {
+      return isServer
+        ? { resolve: { alias: { '@webcontainer/api$': false } } }
+        : {
+            devServer: {
+              headers: {
+                'Cross-Origin-Opener-Policy': 'same-origin',
+                'Cross-Origin-Embedder-Policy': 'require-corp',
+              },
+            },
+          };
+    },
   };
 }
 

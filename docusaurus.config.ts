@@ -72,26 +72,6 @@ const config: Config = {
     ],
   ],
 
-  plugins: [
-    function browserOnlyWebContainer() {
-      return {
-        name: 'browser-only-webcontainer',
-        configureWebpack(_config, isServer) {
-          return isServer
-            ? { resolve: { alias: { '@webcontainer/api': false } } }
-            : {
-                devServer: {
-                  headers: {
-                    'Cross-Origin-Opener-Policy': 'same-origin',
-                    'Cross-Origin-Embedder-Policy': 'require-corp',
-                  },
-                },
-              };
-        },
-      };
-    },
-  ],
-
   themeConfig: {
     // Replace with your project's social card
     image: 'img/typescript.png',

@@ -83,6 +83,18 @@ test('assembles TS config, nested sidebar shorthand, category links, refs, front
   assert.equal(generated.title, 'Fixture');
   assert.deepEqual(generated.presets[0][1].docs.include, result.documents);
   assert.ok(generated.themeConfig.prism.theme);
+  const webContainerPlugin = generated.plugins
+    .filter((plugin) => typeof plugin === 'function')
+    .map((plugin) => plugin())
+    .find((plugin) => plugin.name === 'browser-only-webcontainer');
+  assert.ok(webContainerPlugin);
+  assert.deepEqual(webContainerPlugin.configureWebpack({}, true), {
+    resolve: { alias: { '@webcontainer/api$': false } },
+  });
+  assert.deepEqual(webContainerPlugin.configureWebpack({}, false).devServer.headers, {
+    'Cross-Origin-Opener-Policy': 'same-origin',
+    'Cross-Origin-Embedder-Policy': 'require-corp',
+  });
   // Assembly never writes lesson material into the configuration repository root.
   assert.deepEqual((await fs.readdir(options.courseDir)).sort(), ['.course', 'docusaurus.config.ts', 'sidebars.ts']);
 });
