@@ -32,4 +32,10 @@ for (const ingredient of lasagne.ingredienten) {
     console.log(`- ${ingredient.naam}`);
 }
 
+let totaleKostprijs: number = 0;
+for (const ingredient of lasagne.ingredienten) {
+    totaleKostprijs += ingredient.prijs;
+}
+console.log(`Totale kostprijs: ${totaleKostprijs} euro`);
+
 export {}

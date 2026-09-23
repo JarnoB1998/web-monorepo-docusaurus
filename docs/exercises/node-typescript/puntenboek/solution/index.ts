@@ -4,7 +4,7 @@ let points : number[] = [];
 let running : boolean = true;
 
 do {
-    let input : string = readline.question('Geef de punten van een student in: ');
+    let input : string = readline.question(`Geef de punten van student ${points.length + 1} in: `);
     if (input === '') {
         running = false;
     } else {

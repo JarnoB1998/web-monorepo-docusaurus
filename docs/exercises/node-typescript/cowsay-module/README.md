@@ -14,7 +14,7 @@ Als de gebruiker "Meow!" invoert, dan moet de `say` functie een error gooien met
 
 ```
 What should the cow say? Meow!
-Cows don't say that!
+Cows don't meow!
 What should the cow say? Moo!
  ______
 < Moo! >

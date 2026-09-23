@@ -1,6 +1,6 @@
 # Exceptions Test
 
-Maak zelf een nieuw TypeScript + Jest project aan (zie de theorie voor de installatiestappen). Maak een module `validator.ts` met de volgende functies:
+Maak zelf een nieuw TypeScript + Vitest project aan (zie de theorie voor de installatiestappen). Maak een module `validator.ts` met de volgende functies:
 
 - `validateAge(age: number): void` — gooit een `Error` als de leeftijd kleiner dan of gelijk aan 0 is, of groter dan 150.
 - `validateUsername(username: string): void` — gooit een `Error` als de gebruikersnaam korter is dan 3 of langer dan 20 karakters.

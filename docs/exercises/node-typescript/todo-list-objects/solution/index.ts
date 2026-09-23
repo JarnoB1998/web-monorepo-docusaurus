@@ -8,7 +8,7 @@ interface Todo {
 }
 
 let todos: Todo[] = todosJson;
-let nextId: number = 1;
+let nextId: number = Math.max(...todos.map((todo) => todo.id), 0) + 1;
 
 const menuItems: string[] = [
   "Add a task",

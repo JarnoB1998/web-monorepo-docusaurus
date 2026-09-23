@@ -1,33 +1,3 @@
-function filterPositive(numbers: number[]) {
-    let filtered: number[] = [];
-    for (let i = 0; i < numbers.length; i++) {
-        if (numbers[i] > 0) {
-            filtered.push(numbers[i]);
-        }
-    }
-    return filtered;
-}
-
-function filterNegative(numbers: number[]) {
-    let filtered: number[] = [];
-    for (let i = 0; i < numbers.length; i++) {
-        if (numbers[i] < 0) {
-            filtered.push(numbers[i]);
-        }
-    }
-    return filtered;
-}
-
-function filterEven(numbers: number[]) {
-    let filtered: number[] = [];
-    for (let i = 0; i < numbers.length; i++) {
-        if (numbers[i] % 2 === 0) {
-            filtered.push(numbers[i]);
-        }
-    }
-    return filtered;
-}
-
 interface FilterFunction {
     (number: number): boolean
 }
@@ -40,6 +10,18 @@ function filter(numbers: number[], filterFunction: FilterFunction) {
         }
     }
     return filtered;
+}
+
+function filterPositive(numbers: number[]) {
+    return filter(numbers, (number) => number > 0);
+}
+
+function filterNegative(numbers: number[]) {
+    return filter(numbers, (number) => number < 0);
+}
+
+function filterEven(numbers: number[]) {
+    return filter(numbers, (number) => number % 2 === 0);
 }
 
 const numbers: number[] = [-4,-4,1,2,3,4,5];

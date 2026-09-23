@@ -22,7 +22,7 @@ if (option === 0) {
         console.log(`${i + 1}. [ ] ${tasks[i]}`);
     }
     for (let i = 0; i < checkedTasks.length; i++) {
-        console.log(`${i + 1}. [X] ${checkedTasks[i]}`);
+        console.log(`${tasks.length + i + 1}. [X] ${checkedTasks[i]}`);
     }
 } else if (option === 2) {
     let taskIndex: number = readline.keyInSelect(tasks, "What did you do?", { cancel: false });

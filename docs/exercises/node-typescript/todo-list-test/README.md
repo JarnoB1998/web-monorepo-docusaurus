@@ -1,6 +1,6 @@
 # Todo List Test
 
-Maak zelf een nieuw TypeScript + Jest project aan (zie de theorie voor de installatiestappen). Maak een module `todo-list.ts` met de volgende functies:
+Maak zelf een nieuw TypeScript + Vitest project aan (zie de theorie voor de installatiestappen). Maak een module `todo-list.ts` met de volgende functies:
 
 - `addTodo(todos: string[], task: string): void` — voegt een taak toe aan de lijst.
 - `removeTodo(todos: string[], index: number): void` — verwijdert de taak op de opgegeven index. Gooit een `Error` als de index ongeldig is (negatief of te groot).

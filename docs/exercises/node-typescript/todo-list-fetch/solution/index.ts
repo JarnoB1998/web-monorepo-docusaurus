@@ -20,9 +20,9 @@ async function main() {
 
   try {
     const response = await fetch("https://jsonplaceholder.typicode.com/todos");
-    todos = await response.json();
-
     if (response.ok) {
+      todos = await response.json();
+      nextId = Math.max(...todos.map((todo) => todo.id), 0) + 1;
 
       let running: boolean = true;
       do {

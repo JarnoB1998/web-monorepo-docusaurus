@@ -1,4 +1,3 @@
-import { read } from 'fs';
 import readline from 'readline-sync';
 
 interface School {
@@ -41,7 +40,7 @@ const countries: string[] = [
 ];
 
 async function readSchools(country: string) {
-    const response = await fetch(`http://universities.hipolabs.com/search?country=${country}`);
+    const response = await fetch(`http://universities.hipolabs.com/search?country=${encodeURIComponent(country)}`);
     const schools: School[] = await response.json();
 
     console.log(`Colleges in ${country}:`);
@@ -61,6 +60,7 @@ async function main() {
         } else {
             let country: string = countries[countryIndex];
             await readSchools(country);
+            running = readline.keyInYNStrict('Do you want to look up another country?');
         }
     } while (running);
 }

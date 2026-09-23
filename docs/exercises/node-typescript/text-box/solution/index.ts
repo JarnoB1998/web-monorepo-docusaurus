@@ -31,4 +31,6 @@ do {
     }
 } while (running);
 
+console.log('Tot ziens!');
+
 export {}

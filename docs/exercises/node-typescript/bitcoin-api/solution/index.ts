@@ -54,6 +54,11 @@ interface Price {
 
 (async () => {
     const currency = readline.question('Welke valuta wil je zien? (EUR, USD, GBP): ');
+    if (currency !== 'EUR' && currency !== 'GBP' && currency !== 'USD') {
+        console.log('Deze valuta wordt niet ondersteund');
+        return;
+    }
+
     const response = await fetch('https://sampleapis.assimilate.be/bitcoin/current');
     const data : RootObject = await response.json();
 
@@ -62,11 +67,8 @@ interface Price {
         price = data.bpi.EUR;
     } else if (currency === "GBP") {
         price = data.bpi.GBP;
-    } else if (currency === "USD") {
-        price = data.bpi.USD;
     } else {
-        console.log('Deze valuta wordt niet ondersteund');
-        return;
+        price = data.bpi.USD;
     }
 
     console.log(`De huidige prijs van bitcoin is ${price.rate_float} ${price.code}`);
