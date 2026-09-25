@@ -52,7 +52,7 @@ const letters: string[] = ['a', 'b', 'a', 'c', 'b', 'a', 'd', 'c', 'b', 'd'];
 let acc: Record<string, number> = {};
 
 for (let curr of letters) {
-    acc = (acc[curr] ?? 0) + 1
+    acc[curr] = (acc[curr] ?? 0) + 1
 }
 
 let freq: Record<string, number> = acc;
